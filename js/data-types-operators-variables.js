@@ -124,6 +124,7 @@ if (!classFull && !classSched) {
 console.log(studentStatus)
 // enrolled
 
+let userType = true;
 let applyDisc = true;
 let discReq = 2;
 let discExp = `12/25`;
@@ -136,7 +137,7 @@ let discVal = discExp.substring(discDay, discExp.length)
 let cartDay = (cartDate.indexOf('/') + 1);
 let cartVal = cartDate.substring(cartDay, cartDate.length)
 
-if ((cartVal <= discVal) && (cartSize > discReq)) {
+if ((cartVal <= discVal) && ((cartSize > discReq) || (userType = true))) {
     applyDisc = true;
 } else {
     applyDisc = false;
