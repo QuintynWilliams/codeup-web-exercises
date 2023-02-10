@@ -53,8 +53,8 @@ let classTime = parseInt(prompt(`What class start-time would you prefer?(enter a
 let classSpace = (Math.random() * 100).toFixed(0);
     alert(`There are ${classSpace} of 100 students already enrolled.`);
     let classSpaceConf = classSpace < 100;
-let enrollCheck = classTimeConf && classSpaceConf
 
+let enrollCheck = classTimeConf && classSpaceConf
 alert(`Can student enroll? ${enrollCheck}`)
 
 /*EX4   A product offer can be applied only if a person
@@ -62,6 +62,7 @@ buys more than 2 items, and the offer has not expired.
 Premium members do not need to buy a specific amount of
 products.*/
 let cartSize = parseInt(prompt(`How many items would you like to add in cart?`));
+
 let response = cartSize > 2;
 alert(`Qualifies for the bulk discount? ${response}`)
 
