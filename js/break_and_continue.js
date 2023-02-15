@@ -2,7 +2,6 @@
 
 //Break and Continue
 
-
 const getOdd = (userInput) => {
     if(userInput % 2 === 1) {
         for (let i = 1; i <= 50; i += 2) {
