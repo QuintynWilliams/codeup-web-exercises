@@ -16,7 +16,7 @@ do {
         console.log(`${boughtCones} cone(s) sold.`)
         allCones -= boughtCones
     } else if (boughtCones > allCones) {
-        console.log(`Cannot sell you ${boughtCones}, I only have ${allCones} left`)
+        console.log(`Cannot sell you ${boughtCones} cones, I only have ${allCones} left`)
     }
 } while (allCones > 0);
 
