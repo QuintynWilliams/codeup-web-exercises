@@ -170,9 +170,9 @@ if (userLuckyNum === true) {
         alert(`Your number  is even`);
         alert(`Your number plus 100 is: ${luckyCalc + 100}`);
         if (luckyCalc < 0) {
-            alert(`Your number is negative`)
+            alert(`Your number is negative`);
         } else {
-            alert(`Your number is positive`)
+            alert(`Your number is positive`);
         }
     }
 }

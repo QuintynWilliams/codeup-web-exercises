@@ -1,8 +1,8 @@
 "use strict";
 let i = 1;
-while (i <= 16) {
+while (i < 17) {
     console.log(Math.pow(2, i));
-    i++
+    i++;
 }
 
 // This is how you get a random number between 50 and 100
@@ -13,10 +13,10 @@ let allCones = Math.floor(Math.random() * 50) + 50;
 do {
     let boughtCones = Math.floor(Math.random() * 5) + 1;
     if (boughtCones <= allCones) {
-        console.log(`${boughtCones} cone(s) sold.`)
-        allCones -= boughtCones
+        console.log(`${boughtCones} cone(s) sold.`);
+        allCones -= boughtCones;
     } else if (boughtCones > allCones) {
-        console.log(`Cannot sell you ${boughtCones} cones, I only have ${allCones} left`)
+        console.log(`Cannot sell you ${boughtCones} cones, I only have ${allCones} left`);
     }
 } while (allCones > 0);
 

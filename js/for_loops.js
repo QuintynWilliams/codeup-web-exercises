@@ -30,4 +30,3 @@ for (let i = 0; i <= 19; i++) {
     console.log(100 - (i * 5))
 }
 
-
