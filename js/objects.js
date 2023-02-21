@@ -137,7 +137,19 @@
     }
 
     const showBookInfo = (obj) => {
-        console.log(`Book # 1\nTitle: ${obj.title}\nAuthor: ${obj.author.firstName} ${obj.author.lastName}\n---`)
+         console.log(`Book # ${books.length}\nTitle: ${obj.title}\nAuthor: ${obj.author.firstName} ${obj.author.lastName}\n---`)
     }
-    console.log(showBookInfo(createBook(userTitle, userAuthor)))
+  showBookInfo(createBook(userTitle, userAuthor))
+
+
+
+    // function createNewBook (bookTitle, authorFirst, authorLast) {
+    //     this.title = bookTitle;
+    //     this.firstName = authorFirst;
+    //     this.lastName = authorLast;
+    // }
+    //
+    // const customerBook = [];
+    // customerBook.push(new createNewBook("wonderland", 'michael', 'jackson'))
+    // console.log(customerBook)
 })();
