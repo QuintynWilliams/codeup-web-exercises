@@ -1,5 +1,123 @@
-.fancy-header {
-    color: purple; /* single line comment */
-    text-decoration: underline;
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&display=swap');
+
+* {
+    box-sizing: border-box;
+    background-image: url("../images/y-so-serious.png");
 }
 
+img{
+    display: block;
+    max-width: 100%;
+    width: 100%;
+}
+
+body {
+    margin: 0;
+    padding: 20px;
+}
+.fancy-header {
+    color: #fdcd54; /* single line comment */
+    font-size: 50px;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+h1, h2 {
+    font-family: "Cinzel", sans-serif;
+}
+
+.text-center {
+    text-align: center;
+}
+
+header {
+    padding: 0 20px;
+    border-bottom: 1px solid black;
+    display: block;
+}
+
+header p {
+    color: gray;
+}
+
+main {
+    padding: 0;
+    color: white;
+    font-size: medium;
+}
+
+.feature-container {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid #000;
+    padding: 0 30px
+}
+
+li {
+    list-style: square;
+}
+
+.photos-wrapper {
+    display: flex;
+    max-width: 100vw;
+}
+
+.photo-wrapper {
+    flex: 1 0;
+    min-width: 1px;
+    overflow: hidden;
+}
+
+.photos-wrapper .photo-wrapper img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: all ease 3s;
+    filter: grayscale(1);
+}
+
+.photo-wrapper:hover img {
+    transform: scale(1.1);
+    filter: grayscale(0);
+}
+
+th {
+    padding: 0 30px 0 30px;
+    font-weight: bolder;
+}
+
+td {
+    padding: 0 25px 0 25px;
+    font-weight: lighter;
+    color: #cccccc;
+}
+
+td:nth-child(-n+2) {
+    border-right: 1px solid gray;
+}
+
+a:hover {
+    transition: all ease 2s;
+    color: #aafae2;
+}
+
+table {
+    float: right;
+    display: inline;
+    width: 50%;
+}
+
+@media (max-width: 1000px) {
+    .fancy-header {
+        font-size: 1.5rem ;
+        float: left;
+    }
+    #motto {
+        float: right;
+    }
+}
+
+@media (max-width: 320px) {
+    .feature-container {
+        display: inline;
+    }
+}
