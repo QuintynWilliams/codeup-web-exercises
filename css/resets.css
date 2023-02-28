@@ -1,7 +1,6 @@
-*,:after,:before {
+*, *::before, *::after  {
     box-sizing: border-box;
     margin: 0;
-    padding: 0;
 }
 
 blockquote,body,dd,dl,figure,h1,h2,h3,h4,p {
@@ -12,9 +11,11 @@ body {
     min-height: 100vh;
     text-rendering: auto;
     line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+    overflow-wrap: break-word;
 }
 
-img {
+img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
 }
