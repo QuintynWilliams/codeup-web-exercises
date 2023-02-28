@@ -101,23 +101,22 @@ a:hover {
 }
 
 table {
-    float: right;
     display: inline;
     width: 50%;
 }
 
-@media (max-width: 1000px) {
-    .fancy-header {
-        font-size: 1.5rem ;
-        float: left;
-    }
-    #motto {
-        float: right;
-    }
-}
+/*@media (max-width: 1000px) {*/
+/*    .fancy-header {*/
+/*        font-size: 1.5rem ;*/
+/*        float: left;*/
+/*    }*/
+/*    #motto {*/
+/*        float: right;*/
+/*    }*/
+/*}*/
 
-@media (max-width: 320px) {
-    .feature-container {
-        display: inline;
-    }
-}
+/*@media (max-width: 320px) {*/
+/*    .feature-container {*/
+/*        display: inline;*/
+/*    }*/
+/*}*/
