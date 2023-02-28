@@ -3,14 +3,11 @@
     margin: 0;
 }
 
-blockquote,body,dd,dl,figure,h1,h2,h3,h4,p {
-    margin: 0;
-}
-
 body {
     min-height: 100vh;
     text-rendering: auto;
     line-height: 1.5;
+    /* webkit only works on chrome & firefox */
     -webkit-font-smoothing: antialiased;
     overflow-wrap: break-word;
 }
@@ -18,4 +15,27 @@ body {
 img, picture, video, canvas, svg {
     display: block;
     max-width: 100%;
+}
+
+ul, ol, dir, menu {
+    list-style: none;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+a, a:visited {
+    text-decoration: none;
+    color: unset;
+}
+
+.clickable,
+label,
+input[type=button],
+input[type=submit],
+input[type=file],
+button {
+    cursor: pointer;
+    outline: unset;
 }
