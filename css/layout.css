@@ -97,6 +97,9 @@
 .column.align-right {
     align-items: flex-end;
 }
+.column.align-left {
+    align-items: flex-start;
+}
 .column.justify-center {
     justify-content: center;
 }

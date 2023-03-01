@@ -1,0 +1,78 @@
+/*
+    Specific to the singular header container element in HTML.
+*/
+* {
+    font-family: Arial, sans-serif;
+    color: #6e6e6e;
+    font-size: 1rem;
+    line-height: 1.5;
+}
+
+h1 {
+    font-weight: lighter;
+    margin-bottom: 30px;
+}
+
+.jump-text {
+    font-size: 3rem;
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.tight-text {
+    max-width: 350px;
+}
+
+a {
+    font-size: 0.85rem;
+}
+header.container {
+    height: 80px;
+}
+
+.container.hero-scene {
+    height: 73vh;
+    background-color: #dedede;
+}
+
+.hero-text {
+    max-width: 450px;
+}
+
+.container.features {
+    padding: 40px 0;
+}
+
+.feature-card {
+    max-width: 450px;
+}
+
+.feature-title {
+    font-size: 2rem;
+    font-weight: lighter;
+}
+
+.feature-text {
+    color: #888888;
+    text-align: center;
+    font-size: 0.85rem;
+}
+
+button {
+    background-color: #888888;
+    color: white;
+    border-radius: 5px;
+    height: 35px;
+    width: 110px;
+    border: none;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+    font-size: 0.85rem;
+}
+
+ .logo {
+    max-width: 30%;
+}
+
+.hero-image {
+    width: 100%;
+}

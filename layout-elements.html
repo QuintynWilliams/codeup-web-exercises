@@ -5,26 +5,25 @@
     <title>Layout Elements Lesson</title>
     <link rel="stylesheet" href="css/resets.css">
     <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/layout-elements-lesson.css">
+    <link rel="stylesheet" href="css/layout-elements-exercise.css">
 </head>
 <body>
 <div class="page-wrapper">
     <header class="container justify-center">
         <div class="row justify-space-between align-center">
-            <div class="column shrink">LOGO HERE</div>
+            <div class="column shrink">
+                <img class="logo" src="images/example-logo.svg" alt="ourweb-logo">
+            </div>
             <div class="column">
                 <div class="row justify-right">
-                    <div class="column shrink">
+                    <div class="column shrink text-center">
                         <a href="#" title="Go Home">Home</a>
                     </div>
-                    <div class="column shrink">
-                        <a href="#" title="Go about">About</a>
+                    <div class="column shrink text-center">
+                        <a href="#" title="Go about">Overview</a>
                     </div>
-                    <div class="column shrink">
-                        <a href="#" title="Go Home">Our Team</a>
-                    </div>
-                    <div class="column shrink">
-                        <a href="#" title="Go Home">Contact</a>
+                    <div class="column shrink text-center">
+                        <a href="#" title="Go Home">Features</a>
                     </div>
                 </div>
             </div>
@@ -34,34 +33,26 @@
         </div>
     </header>
     <section class="container hero-scene justify-center">
-        <div class="row">
-            <div class="column justify-center">
+        <div class="row align-center">
+            <div class="column">
                 <div class="hero-text">
-                <h1>WELCOME TO HERE</h1>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab aliquam asperiores atque deserunt esse hic itaque libero mollitia odio officiis omnis provident quam quibusdam quidem reprehenderit repudiandae sit velit, voluptatem.</p>
+                    <h1>An Exercise in Web Layouts</h1>
+                    <p class="jump-text">We are all masters of the frontend.</p>
+                    <p class="tight-text">Home is behind, the world ahead and there are many paths to tread through shadows to the.</p>
+                </div>
+            </div>
+            <div class="column">
+                <div class="hero-image">
+                    <img src="images/placeholder550x440.webp" alt="placeholder-image">
                 </div>
             </div>
         </div>
     </section>
     <section class="container features">
-        <div class="row">
-            <div class="column justify-center text-center">
-                <div class="feature-card">
-                    <h2>Feature 1</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Commodi consequuntur deleniti, ducimus earum hic ipsam.</p>
-                </div>
-            </div>
-            <div class="column justify-center text-center">
-                <div class="feature-card">
-                    <h2>Feature 2</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam ex ipsa mollitia nemo, odio omnis veniam.</p>
-                </div>
-            </div>
-            <div class="column justify-center text-center">
-                <div class="feature-card">
-                    <h2>Feature 3</h2>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias at, eos iure minus possimus repellat repudiandae.</p>
-                </div>
+        <div class="row justify-center">
+            <div class="feature-card column text-center">
+                    <h2 class="feature-title">Features</h2>
+                    <p class="feature-text">Home is behind, the world ahead and there are many paths to tread through shadows to the edge, world ahead and there are.</p>
             </div>
         </div>
     </section>
