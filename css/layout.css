@@ -61,6 +61,11 @@
 .row.justify-center {
     justify-content: center;
 }
+
+.row.justify-right {
+    justify-content: flex-end;
+}
+
 .row.justify-space-between {
     justify-content: space-between;
 }
