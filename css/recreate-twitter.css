@@ -1,0 +1,179 @@
+.page-wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 20px;
+}
+.container.grow {
+    flex: 1 0 0;
+}
+.container.justify-center {
+    justify-content: center;
+}
+.row {
+    width: 100%;
+    max-width: 1050px;
+    display: flex;
+    padding: 0 0px;
+    gap: 20px;
+}
+.row.full-width {
+    max-width: unset;
+}
+.row.align-center {
+    align-items: center;
+}
+.row.align-top {
+    align-items: flex-start;
+}
+.row.align-bottom {
+    align-items: flex-end;
+}
+.row.justify-center {
+    justify-content: center;
+}
+.row.justify-right {
+    justify-content: flex-end;
+}
+.row.justify-left {
+    justify-content: flex-start;
+}
+.row.justify-space-between {
+    justify-content: space-between;
+}
+.row.no-padding {
+    padding: unset;
+}
+.row.no-gap {
+    gap: unset;
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    flex: 1 0 0;
+}
+.column.shrink {
+    flex: 0 1 auto;
+}
+.column.align-center {
+    align-items: center;
+}
+.column.align-right {
+    align-items: flex-end;
+}
+.column.align-left {
+    align-items: flex-start;
+}
+.column.justify-center {
+    justify-content: center;
+}
+.column.justify-space-between {
+    justify-content: space-between;
+}
+.column.text-center {
+    text-align: center;
+}
+
+
+* {
+    font-family: "Helvetica Neue";
+}
+
+.page-layout {
+    gap: 20px;
+}
+
+.content {
+    background-color: rgba(255, 0, 0, 0.5);
+    max-width: 195px;
+    flex-grow: 1;
+}
+
+.icon {
+    max-width: 27px;
+    margin: 10px 6px;
+}
+
+.content-options {
+    margin-left: 7px;
+}
+
+.profile {
+    background-color: rgba(115, 255, 0, 0.5);
+    max-width: 480px;
+    border-left: 1px solid black;
+    border-right: 1px solid black;
+}
+
+.return {
+    margin: 10px 0 10px 10px;
+    max-width: 4%;
+}
+.profile-name {
+    font-weight: bolder;
+    line-height: 1.25;
+}
+#tweets {
+    font-size: 65%;
+}
+
+#header-img {
+    width: 480px;
+    height: 170px;
+    object-fit: none;
+}
+.engage-wrapper {
+    position: relative;
+}
+
+.profile-engage {
+    padding: 15px;
+    position: absolute;
+    margin-top: -80px;
+}
+
+#profile-photo {
+    max-width: 110px;
+    border-radius: 999px;
+}
+
+button {
+    background-color: whitesmoke;
+    border-radius: 30px;
+    border: none;
+    padding: 7px 12px;
+    font-weight: bolder;
+    margin-bottom: 10px;
+}
+
+.profile-about {
+    margin-top: 55px;
+    margin-left: 10px;
+}
+
+#about-bio {
+    padding: 12px 0;
+    font-size: 16px;
+    line-height: 1;
+}
+
+#username {
+    font-size: 65%;
+}
+
+.address {
+    font-size: 65%;
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+.media {
+    background-color: rgba(0, 255, 225, 0.5);
+    max-width: 280px;
+}
+
