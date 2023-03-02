@@ -1,71 +1,38 @@
 /*
     Specific to the singular header container element in HTML.
 */
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 * {
-    font-family: Arial, sans-serif;
+    font-family: "Roboto", Arial, sans-serif;
     color: #6e6e6e;
     font-size: 1rem;
     line-height: 1.5;
 }
 
-h1 {
-    font-weight: lighter;
-    margin-bottom: 30px;
+
+/* HEADER */
+
+header {
+    z-index: 1;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.1);
 }
 
-.jump-text {
-    font-size: 3rem;
-    margin-bottom: 30px;
-    line-height: 1;
-}
-
-.tight-text {
-    max-width: 350px;
+.logo {
+    height: 35px;
 }
 
 a {
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
+
+a:hover {
+    color: black;
+}
+
 header.container {
     height: 80px;
-}
-
-.container.hero-scene {
-    height: 73vh;
-    background-color: #dedede;
-}
-
-.hero-text {
-    max-width: 450px;
-}
-
-.container.features {
-    padding: 40px 0;
-}
-
-.feature-card {
-    max-width: 450px;
-}
-
-.feature-title {
-    font-size: 2rem;
-    font-weight: lighter;
-}
-
-.feature-sub {
-    margin-bottom: 2vh;
-    margin-top: 4vh;
-}
-.feature-text {
-    color: #888888;
-    text-align: center;
-    font-size: 0.85rem;
-    margin-bottom: 50px;
-}
-
-.sub-content {
-    font-weight: lighter;
-    line-height: 1rem;
 }
 
 button {
@@ -76,19 +43,96 @@ button {
     width: 110px;
     border: none;
     box-shadow: 1px 1px 5px rgba(0,0,0,0.5);
-    font-size: 0.85rem;
+    font-size: 1rem;
 }
 
- .logo {
-     height: 35px;
+button:hover {
+    transition: all ease-in;
+    flex: 1 0 0;
+}
+
+
+/* HERO SCENE */
+
+h1 {
+    color: #888888;
+    margin-bottom: 30px;
+}
+
+.jump-text {
+    font-size: 4rem;
+    margin-bottom: 30px;
+    line-height: 1;
+}
+
+.tight-text {
+    max-width: 350px;
 }
 
 .hero-image {
     width: 100%;
 }
 
+.hero-image > img {
+    border-radius: 5px;
+}
+
+.hero-scene {
+    z-index: 0;
+}
+
+.container.hero-scene {
+    height: 73vh;
+    background-color: #ececec;
+}
+
+.hero-text {
+    max-width: 600px;
+}
+
+/* FEATURES */
+
+.container.features {
+    padding: 40px 0;
+    z-index: 1;
+    box-shadow: 0px -10px 25px rgba(0,0,0,0.1);
+}
+
+.feature-card {
+    margin-top: 50px;
+    max-width: 500px;
+}
+
+.feature-title {
+    font-size: 4rem;
+    font-weight: normal;
+}
+
+.feature-text {
+    color: #9f9f9f;
+    text-align: center;
+    font-size: 1rem;
+    margin-bottom: 50px;
+}
+
+.feature-sub {
+    margin-bottom: 1vh;
+    margin-top: 3vh;
+    font-size: 1.2rem;
+    font-weight: initial;
+}
+
+.sub-content {
+    line-height: 1.2rem;
+    font-size: .9rem;
+}
+
 .feature-icon   {
     max-width: 20%;
     background-color: #dedede;
     border-radius: 5000000px;
+}
+
+.feature-list {
+    gap: 55px;
 }
