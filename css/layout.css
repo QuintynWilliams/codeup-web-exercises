@@ -89,7 +89,7 @@
 }
 /* Combo classes to extend the column's versatility */
 .column.shrink {
-    flex: 0 1 80px;
+    flex: 0 1 auto;
 }
 .column.align-center {
     align-items: center;

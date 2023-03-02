@@ -52,10 +52,20 @@ header.container {
     font-weight: lighter;
 }
 
+.feature-sub {
+    margin-bottom: 2vh;
+    margin-top: 4vh;
+}
 .feature-text {
     color: #888888;
     text-align: center;
     font-size: 0.85rem;
+    margin-bottom: 50px;
+}
+
+.sub-content {
+    font-weight: lighter;
+    line-height: 1rem;
 }
 
 button {
@@ -70,9 +80,15 @@ button {
 }
 
  .logo {
-    max-width: 30%;
+     height: 35px;
 }
 
 .hero-image {
     width: 100%;
+}
+
+.feature-icon   {
+    max-width: 20%;
+    background-color: #dedede;
+    border-radius: 5000000px;
 }
