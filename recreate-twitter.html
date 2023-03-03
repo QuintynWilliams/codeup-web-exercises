@@ -27,6 +27,16 @@
                             </div>
                         </td>
                         <td>
+                            <p class="content-options">Home</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon settings">
+                                <img src="images/stock img icon.ico" alt="settings-placeholder">
+                            </div>
+                        </td>
+                        <td>
                             <p class="content-options">Explore</p>
                         </td>
                     </tr>
@@ -37,10 +47,63 @@
                             </div>
                         </td>
                         <td>
-                            <p class="content-options">Settings</p>
+                            <p class="content-options">Notifications</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon explore">
+                                <img src="images/stock img icon.ico" alt="explore-placeholder">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="content-options">Messages</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon settings">
+                                <img src="images/stock img icon.ico" alt="settings-placeholder">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="content-options">Bookmarks</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon settings">
+                                <img src="images/stock img icon.ico" alt="settings-placeholder">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="content-options">Twitter Blue</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon explore">
+                                <img src="images/stock img icon.ico" alt="explore-placeholder">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="content-options">Profile</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="icon settings">
+                                <img src="images/stock img icon.ico" alt="settings-placeholder">
+                            </div>
+                        </td>
+                        <td>
+                            <p class="content-options">More</p>
                         </td>
                     </tr>
                 </table>
+                <div class="row justify-right">
+                    <button id="tweet-post">Tweet</button>
+                </div>
             </div>
         </div>
         <div class="column profile">
@@ -54,19 +117,19 @@
                 </div>
             </div>
             <div class="row profile-header-img">
-                <img id="header-img" src="images/Header.jpg" alt="profile-header">
+                <img id="header-img" src="images/cody-parade.jpeg" alt="profile-header">
             </div>
             <div class="engage-wrapper">
                 <div class="row align-bottom justify-space-between profile-engage">
                     <div class="profile-image">
                         <img id="profile-photo" src="images/avatar.jpeg" alt="profile-photo">
                     </div>
-                    <div class="profile-follow">
-                        <button id="follow">Follow</button>
+                    <div>
+                        <button class="follow">Follow</button>
                     </div>
                 </div>
             </div>
-            <div class="column profile-about">
+            <div class="profile-about">
                 <div class="profile-name">
                     <p id="name">Bob Barker</p>
                     <p id="username">@BobbyBee</p>
@@ -97,9 +160,173 @@
                 </div>
             </div>
             <div id="selected"></div>
+            <div class="column live-feed-wrapper">
+                <div class="tweet-post">
+                    <div class="row">
+                        <div class="icon">
+                            <img id="tweet-profile" src="images/avatar.jpeg" alt="profile-photo">
+                        </div>
+                        <div class="row tweet-head align-center justify-left">
+                            <p> <span> Bob Barker</span> </p>
+                            <p> @BobbyBee</p>
+                            <p>• Mar 3, 2020</p>
+                        </div>
+                    </div>
+                    <div class="column tweet">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, cum nulla. Labore magnam odio sit suscipit!</p>
+                        <div class="row tweet-options justify-center">
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>11.8K</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>15.6K</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>35.8K</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>13.6M</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tweet-post">
+                    <div class="row">
+                        <div class="icon">
+                            <img id="tweet-profile" src="images/avatar.jpeg" alt="profile-photo">
+                        </div>
+                        <div class="row tweet-head align-center justify-left">
+                            <p> <span> Bob Barker</span> </p>
+                            <p> @BobbyBee</p>
+                            <p> Mar 3, 2020</p>
+                        </div>
+                    </div>
+                    <div class="column tweet">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, cum nulla. Labore magnam odio sit suscipit!</p>
+                        <div class="row tweet-options justify-center">
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>11.8K</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>15.6K</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>35.8K</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                                <p>13.6M</p>
+                            </div>
+                            <div class="row align-center">
+                                <div class="tweet-option icon">
+                                    <img src="images/stock%20img%20icon.ico" alt="comment">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="column media">
+            <div class="row search-bar align-top">
+                <div class="icon2">
+                    <img src="images/stock%20img%20icon.ico" alt="search">
+                </div>
+                <input type="search" placeholder="Search Twitter">
+            </div>
+            <div class="row preview-wrapper justify-space-between">
+                <div class="image-preview">
+                    <img src="images/pexels-andrea-piacquadio-3760778.jpg" alt="">
+                </div>
+                <div class="image-preview">
+                    <img src="images/pexels-daniel-frank-305565.jpg" alt="">
+                </div>
+                <div class="image-preview">
+                    <img src="images/pexels-rebrand-cities-1367269.jpg" alt="">
+                </div>
+                <div class="image-preview">
+                    <img src="images/pexels-cottonbro-studio-3205567.jpg" alt="">
+                </div>
+                <div class="image-preview">
+                    <img src="images/cody-parade.jpeg" alt="">
+                </div>
+                <div class="image-preview">
+                    <img src="images/y-so-serious.png" alt="">
+                </div>
+            </div>
+            <div class="column suggested-accounts">
+                <p><span>You might like</span></p>
+                <div class="row suggested-profile align-center justify-space-between">
+                    <div class="anon-acct">
+                        <img id="anon-acct-icon" src="images/anon-icon.png" alt="other-account">
+                    </div>
+                    <div class="column suggested-stack">
+                        <p class="suggested-anon"><span>Charlie Sheen</span></p>
+                        <p class="suggested-user"> @TigerBlood</p>
+                    </div>
+                    <div>
+                        <button class="follow">Follow</button>
+                    </div>
+                </div>
+                <div class="row suggested-profile align-center justify-space-between">
+                    <div class="anon-acct">
+                        <img id="anon-acct-icon" src="images/anon-icon.png" alt="other-account">
+                    </div>
+                    <div class="column suggested-stack">
+                        <p class="suggested-anon"><span>Rick James</span></p>
+                        <p class="suggested-user"> @Ricky-Jae</p>
+                    </div>
+                    <div>
+                        <button class="follow">Follow</button>
+                    </div>
+                </div>
+                <div class="row suggested-profile align-center justify-space-between">
+                    <div class="anon-acct">
+                        <img id="anon-acct-icon" src="images/anon-icon.png" alt="other-account">
+                    </div>
+                    <div class="column suggested-stack">
+                        <p class="suggested-anon"><span>Joe Schmontszki</span></p>
+                        <p class="suggested-user"> @JSchmo</p>
+                    </div>
+                    <div>
+                        <button class="follow">Follow</button>
+                    </div>
+                </div>
+                <div class="accounts-show-more">
+                    <p><a href="#">Show More</a></p>
+                </div>
+            </div>
+            <div class="column suggested-article">
 
+            </div>
         </div>
       </div>
     </div>
