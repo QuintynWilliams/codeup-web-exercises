@@ -62,7 +62,7 @@
                         <img id="profile-photo" src="images/avatar.jpeg" alt="profile-photo">
                     </div>
                     <div class="profile-follow">
-                        <button>Follow</button>
+                        <button id="follow">Follow</button>
                     </div>
                 </div>
             </div>
@@ -74,15 +74,29 @@
                 <p id="about-bio">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
             </div>
             <div class="row address">
-                <div class="location">location,USA</div>
+                <div class="location">Location,USA</div>
                 <div class="link">myweb.com</div>
                 <div class="date-joined">Joined June 2020</div>
             </div>
             <div class="row follow-status">
-                <div id="following">1,342 Following</div>
-                <div id="followers">1.35M Followers</div>
+                <div id="following"><span>1,342</span> Following</div>
+                <div id="followers"><span>1.35M </span>Followers</div>
             </div>
-            <div class="profile-feed"></div>
+            <div class="row profile-feed justify-center">
+                <div>
+                    <button class="feed">Tweets</button>
+                </div>
+                <div>
+                    <button class="feed">Tweets & replies</button>
+                </div>
+                <div>
+                    <button class="feed">Media</button>
+                </div>
+                <div>
+                    <button class="feed">Likes</button>
+                </div>
+            </div>
+            <div id="selected"></div>
         </div>
         <div class="column media">
 
