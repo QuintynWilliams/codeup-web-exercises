@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HTML Forms</title>
+    <link rel="stylesheet" href="css/resets.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/form-style.css">
+</head>
+<body class="container dark">
+    <form class="column log-in justify-center align-center" method="POST" action="https://request-inspector.glitch.me/">
+        <div class="title user-login">
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username">
+        </div>
+        <div class="title user-login">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password">
+        </div>
+        <div>
+        <h4 class="title pet-menu">Choose your lizard:</h4>
+            <select class="row pet-menu justify-center">
+                <option value="1">Friendly Lizards</option>
+                <option value="2">Evil Lizards</option>
+                <option value="3">Giant Lizards</option>
+                <option value="4">Rare Lizards</option>
+            </select>
+        </div>
+        <div class="extra-menu">
+            <fieldset class="column">
+                <legend class="title ">Extras:</legend>
+                <div class="row"><input type="checkbox" name="extras" value="Provolone" id="provolone"><label for="provolone">Provolone</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Cheddar" id="cheddar"><label for="cheddar">Cheddar</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="American Cheese" id="american"><label for="american">American Cheese</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Swiss" id="swiss"><label for="swiss">Swiss Cheese</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Pepper Jack" id="pepperJack"><label for="pepperJack">Pepper Jack</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Jalapenos" id="jalapenos"><label for="jalapenos">Sliced Jalapenos</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Mushrooms" id="mushrooms"><label for="mushrooms">Sauteed Mushrooms</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Onions" id="onions"><label for="onions">Grilled Onions</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Bacon" id="bacon"><label for="bacon">Extra Bacon</label></div>
+                <div class="row"><input type="checkbox" name="extras" value="Guacamole" id="guacamole"><label for="guacamole">Guacamole</label></div>
+            </fieldset>
+        </div>
+        <input type="submit">
+    </form>
+</body>
+</html>
