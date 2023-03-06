@@ -1,6 +1,5 @@
-.title {
-    font-weight: bold;
-    font-size: 14px;
+fieldset {
+    border-radius: 5px;
 }
 
 select {
@@ -20,6 +19,30 @@ input[type="submit"] {
     border-radius: 99px;
     text-align: center;
     margin-top: 15px;
+    color: white;
+}
+
+input[type="checkbox"] {
+    margin-left: 35px;
+}
+
+.title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.login {
+    min-width: 300px;
+    max-width: 300px;
+}
+
+.password {
+    margin-top: 10px;
+}
+
+.bio {
+    min-width: 300px;
+    max-width: 300px;
 }
 
 .feedback {
@@ -27,11 +50,12 @@ input[type="submit"] {
     max-width: 300px;
     max-height: 210px;
 }
-.bio {
-    min-width: 300px;
-    max-width: 300px;
+
+.browser {
+    margin-top: 10px;
 }
-.login {
-    min-width: 300px;
-    max-width: 300px;
+
+::placeholder {
+    color: rgba(0, 0, 0, 0.37);
 }
+
