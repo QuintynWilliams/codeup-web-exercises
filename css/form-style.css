@@ -26,6 +26,10 @@ input[type="checkbox"] {
     margin-left: 35px;
 }
 
+input[type="radio"] {
+    margin-left: 35px;
+}
+
 .title {
     font-weight: bold;
     font-size: 14px;
@@ -48,7 +52,7 @@ input[type="checkbox"] {
 .feedback {
     min-width: 275px;
     max-width: 300px;
-    max-height: 210px;
+    max-height: 330px;
 }
 
 .browser {

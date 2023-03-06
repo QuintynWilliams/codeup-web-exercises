@@ -17,7 +17,7 @@
             <input id="password" type="password" placeholder="Enter your password"></label>
         </fieldset>
         <fieldset class="bio align-center justify-center">
-            <legend class="title">About Me</legend>
+            <legend class="title">About</legend>
             <label>
                 <textarea name="bio" cols="31" rows="2" placeholder="Tell us about you"></textarea>
             </label>
@@ -25,10 +25,14 @@
         <fieldset class="column feedback">
             <legend class="title">Feedback</legend>
             <label class="row feedback title">How did you hear about us?</label>
-            <label><input type="checkbox" name="advert" value="billboard"> Billboard</label>
-            <label><input type="checkbox" name="advert" value="radio"> Radio advertisement</label>
-            <label><input type="checkbox" name="advert" value="internet"> Internet advertisement </label>
-            <label><input type="checkbox" name="advert" value="other">  Other</label>
+            <label><input type="radio" name="advert" value="billboard"> Billboard</label>
+            <label><input type="radio" name="advert" value="radio"> Radio advertisement</label>
+            <label><input type="radio" name="advert" value="internet"> Internet advertisement </label>
+            <label><input type="radio" name="advert" value="other">  Other</label>
+            <label class="row feedback title">What is your preferred contact method?</label>
+            <label><input type="checkbox" name="contact" value="Email"> Email</label>
+            <label><input type="checkbox" name="contact" value="Phone"> Phone </label>
+            <label><input type="checkbox" name="contact" value="Social"> Social </label>
             <label class="row feedback browser title" for="browser">What browser do you prefer?</label>
             <select id="browser" name="user-browser">
                 <option value="Chrome">Chrome</option>
