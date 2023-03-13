@@ -25,6 +25,8 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<p class="sub-paragraph">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta dolorum eum fugiat nesciunt nulla quas similique tempore. Adipisci aspernatur, dolore eius, ex id officia omnis optio provident, sunt vel voluptatem.</p>
+
 <script>
     (function() {
         "use strict";
@@ -57,10 +59,10 @@
         })();
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
-        let subParagraphs = document.querySelector('.sub-paragraph');
+        let subParagraphs = document.querySelectorAll('.sub-paragraph');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs.innerHTML = "Mission Accomplished";
+        subParagraphs[0].innerHTML = "Mission Accomplished";
     })();
 </script>
 </body>
