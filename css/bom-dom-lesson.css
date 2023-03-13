@@ -1,0 +1,19 @@
+body {
+    font-family: "Helvetica Neue", sans-serif;
+}
+.btn {
+    padding: 10px 40px;
+    background-color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all ease .27s;
+}
+
+.btn:hover {
+    background-color: #1b95e4;
+}
+
+.page-wrapper.red {
+    background-color: orangered;
+}
