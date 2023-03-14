@@ -39,8 +39,15 @@
         let javaButton = document.querySelector('#btn-1')
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
+        let mainHeaderText = mainHeader.innerText;
+
         javaButton.addEventListener('click', function() {
-            mainHeader.innerHTML = "JavaScript is Cool";
+            if (mainHeader.innerText === mainHeaderText) {
+                mainHeader.innerHTML = "JavaScript is Cool";
+            } else {
+                mainHeader.innerText = mainHeaderText;
+            }
+
         })
 
         // TODO: Uncomment the next line and get the sub header element by id
@@ -49,7 +56,11 @@
 
         // TODO: Set the text color of subHeader to blue
         headButton.addEventListener('click', function() {
-            subHeader.style.color = 'blue';
+            if (subHeader.style.color === 'blue') {
+                subHeader.style.color = '';
+            } else {
+                subHeader.style.color = 'blue';
+            }
         })
 
         // TODO: Uncomment the next line and get all list items
@@ -59,7 +70,6 @@
         // TODO: Set text color on every other list item to grey
         // TODO: Set text color of li with dbid = 1 to blue
         colorButton.addEventListener('click', function() {
-        (function() {
             for (let i = 0; i < listItems.length; i++) {
                 let bodyElement = document.querySelectorAll('li')[i];
                 if (i === 0) {
@@ -68,7 +78,6 @@
                     bodyElement.style.color = 'grey';
                 }
             }
-        })();
         })
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
