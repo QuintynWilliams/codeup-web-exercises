@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="css/bom-dom-lesson.css">
 </head>
 <body>
+<!--
 <div class="page-wrapper">
     <div class="container grow">
         <div class="row grow">
@@ -17,6 +18,62 @@
             </div>
         </div>
     </div>
+</div>
+-->
+
+<div class="page-wrapper">
+    <div class="mobile-menu-container">
+<!--    Provides object to click IOT exit mobile-menu-->
+        <div class="mobile-menu-overlay"></div>
+        <div class="mobile-menu-wrapper">
+<!--        MENU ITEMS-->
+        </div>
+    </div>
+    <header class="container">
+        <div class="row grow align-center">
+            <div class="column">
+                <h2 class="logo">COMPANY LOGO</h2>
+            </div>
+            <div class="column">
+                <nav class="navigation-wrapper">
+                    <div data-dropdown="parent" class="dropdown-parent">
+                        <div data-dropdown="toggle" class="dropdown-toggle">
+                            <p>Menu Toggle</p>
+                            <div data-dropdown="arrow" class="dropdown-arrow">
+                                <img class="arrow-icon" src="images/arrow.png" alt="arrow">
+                            </div>
+                        </div>
+                        <div data-dropdown="menu" class="dropdown-menu">
+                            <p>Menu Item A</p>
+                            <p>Menu Item A</p>
+                            <p>Menu Item A</p>
+                        </div>
+                    </div>
+                    <div data-dropdown="parent" class="dropdown-parent">
+                        <div data-dropdown="toggle" class="dropdown-toggle">
+                            <p>Menu Toggle</p>
+                            <div data-dropdown="arrow" class="dropdown-arrow">
+                                <img class="arrow-icon" src="images/arrow.png" alt="arrow">
+                            </div>
+                        </div>
+                        <div data-dropdown="menu" class="dropdown-menu">
+                            <p>Menu Item B</p>
+                            <p>Menu Item B</p>
+                            <p>Menu Item B</p>
+                        </div>
+                    </div>
+                </nav>
+            </div>
+            <div class="column shrink">
+<!--            HAMBURGER ICON-->
+                <div class="das-burger-wrapper">
+                    <div class="menu-line top"></div>
+                    <div class="menu-line middle"></div>
+                    <div class="menu-line bottom"></div>
+                </div>
+            </div>
+        </div>
+    </header>
 </div>
 <script src="js/bom-dom-lesson.js"></script>
 </body>
