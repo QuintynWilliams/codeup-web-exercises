@@ -25,26 +25,40 @@
     culpa qui officia deserunt mollit anim id est laborum.
 </p>
 
+<button id="btn-1">JS is Cool</button>
+<button id="btn-2">sHeader to Blue</button>
+<button id="btn-3">Color Items</button>
+<button id="btn-4">Mission Accomplished</button>
+
+
 <script>
     (function() {
         "use strict";
         // TODO: Uncomment next line and get the main header element by id
         let mainHeader = document.querySelector('#main-header');
+        let javaButton = document.querySelector('#btn-1')
 
         // TODO: Set inner html of mainHeader to "JavaScript is Cool"
-        mainHeader.innerHTML = "JavaScript is Cool";
+        javaButton.addEventListener('click', function() {
+            mainHeader.innerHTML = "JavaScript is Cool";
+        })
 
         // TODO: Uncomment the next line and get the sub header element by id
         let subHeader = document.querySelector('#sub-header');
+        let headButton = document.querySelector('#btn-2')
 
         // TODO: Set the text color of subHeader to blue
-        subHeader.style.color = 'blue';
+        headButton.addEventListener('click', function() {
+            subHeader.style.color = 'blue';
+        })
 
         // TODO: Uncomment the next line and get all list items
         let listItems = document.querySelectorAll('li');
+        let colorButton = document.querySelector('#btn-3');
 
         // TODO: Set text color on every other list item to grey
         // TODO: Set text color of li with dbid = 1 to blue
+        colorButton.addEventListener('click', function() {
         (function() {
             for (let i = 0; i < listItems.length; i++) {
                 let bodyElement = document.querySelectorAll('li')[i];
@@ -55,12 +69,16 @@
                 }
             }
         })();
+        })
 
         // TODO: Uncomment the next line and get all elements with class name sub-paragraph
         let subParagraphs = document.querySelectorAll('.sub-paragraph');
+        let missionButton = document.querySelector('#btn-4');
 
         // TODO: Change the text in the first sub paragraph to "Mission Accomplished!"
-        subParagraphs[0].innerHTML = "Mission Accomplished";
+        missionButton.addEventListener('click', function() {
+            subParagraphs[0].innerHTML = "Mission Accomplished";
+        })
     })();
 </script>
 </body>
