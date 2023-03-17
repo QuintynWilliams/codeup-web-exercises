@@ -168,3 +168,25 @@ nav.navigation-wrapper {
 [data-dropdown="parent"].open .arrow-icon {
     transform: rotate(-180deg);
 }
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(172, 41, 245, 0.3);
+    transition: all ease 0.3s;
+}
+
+.slide.left {
+
+}
+
+.slide.right {
+
+}
+
+.slide-arrow-wrapper {
+
+}

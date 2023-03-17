@@ -158,3 +158,33 @@ pageWrapper.addEventListener('click', function() {
         })
     }
 })
+
+// let carouselArrows = document.querySelectorAll('.alide-arrow');
+// let carousel = document.querySelector('.carousel')
+//
+//
+//
+// carouselArrows.forEach(function(arrow) {
+//    let direction;
+//    arrow.addEventListener('click', function(event) {
+//        if (event.target.classList.contains('left')) {
+//            direction = "left";
+//        } else {
+//            direction = "right";
+//        }
+//        // console.log(`Going ${direction}`)
+//        let activeSlide = carousel.querySelector('.slide.active');
+//        let previousSibling = activeSlide.previousElementSibling;
+//        let previousSlides = [];
+//        while (previousSibling) {
+//            previousSlides.unshift(previousSibling);
+//            previousSibling = previousSibling.previousElementSibling;
+//        }
+//        let nextSibling = activeSlide.nextElementSibling;
+//        let nextSlides = [];
+//        while (nextSibling) {
+//             nextSlides.push(nextSibling);
+//             nextSibling =
+//        }
+//    })
+// });
