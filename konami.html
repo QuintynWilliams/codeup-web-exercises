@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Konami Code</title>
+  <link rel="stylesheet" href="css/resets.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: black;
+      color: white;
+      font-family: 'Press Start 2P', sans-serif;
+    }
+    h1 {
+      text-align: center;
+    }
+    h3 {
+      font-size: 20px;
+      margin-bottom: 15px;
+      text-shadow: black 0 3px 1px;
+    }
+
+    button {
+      font-family: 'Press Start 2P', sans-serif;
+      background-color: orangered;
+      padding: 10px;
+      margin-top: 15px;
+      border-radius: 5px;
+      transition: box-shadow 0.02s cubic-bezier(0.79, 0.03, 0.43, 1);
+      box-shadow: inset 0px 0px 0px 0px #44413c, 0px 0px 0px 1.5px #44413c,
+      0px 16px 12px 0px #504d471f;
+    }
+
+    .white {
+      color: #e8e8e8;
+      text-shadow: rgba(219, 220, 217, 0.98) 1px 0 10px;
+    }
+
+    .terminal {
+      margin-top: 30px;
+      height: 80vh;
+      width: auto;
+      max-width: 95vw;
+      background: #778974;
+      border: 20px solid #778974;
+      border-radius: 15px;
+/*    Font Styling*/
+      font-family: 'Press Start 2P', sans-serif;
+      text-align: center;
+      line-height: 1;
+      text-shadow: 2px 2px 0 black;
+      font-size:  24px;
+    }
+    .screen {
+      text-align: start;
+      height: 90%;
+      border: 15px solid #1d352e;
+      background: radial-gradient(#1e8350, #091a06);
+      border-radius: 15px;
+      padding: 20px;
+      font-size:  18px;
+      overflow: auto;
+    }
+
+    .screen:hover {
+      background: radial-gradient(#15a65d, rgba(9, 26, 6, 0.99));
+      border-radius: 15px;
+    }
+
+    .text {
+      margin: 10px;
+      all: unset;
+      background: none;
+      color: greenyellow;
+      height: 100%;
+      width: 85vw;
+      font-size: 24px;
+      text-shadow: rgba(173, 255, 47, 0.98) 1px 0 10px;
+      padding: 15px 0;
+    }
+
+    .input {
+      margin: 15px 0;
+      line-height: 1;
+    }
+
+    .speaker {
+      padding: 0 70px;
+      font-family: sans-serif;
+      font-size: 60px;
+      color: black;
+      text-shadow: rgba(58, 61, 54, 0.98) 1px 0 10px;
+    }
+
+    .bottom {
+      margin-top: 30px;
+    }
+
+  </style>
+</head>
+
+<body>
+<div class="page-wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="column">
+        <h1 class="white">Konami Code</h1>
+        <hr>
+        <div class="row">
+          <div class="terminal column grow justify-space-between">
+            <h3>Konami Corp</h3>
+            <div class="screen">
+              <div class="text">
+                  <h3 class="white">Enter CheatCode:</h3>
+                  <p id="cheatCode"></p>
+              </div>
+            </div>
+            <div class="bottom row justify-space-between align-center">
+              <div class="speaker"> \ \ \ \ \</div>
+              <button type="button" onclick="reloadPage();">RESET</button>
+              <div class="speaker"> / / / / /</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/jquery.js"></script>
+<script>
+  "use strict";
+
+// Up, Up, Down, Down, Left, Right, Left, Right, B, A
+  let konamiCode = [38, 38, 40, 40, 37, 39, 37, 39, 66, 65];
+  let userInput = [];
+
+  const equalArray = (a, b) => {
+    if (a === b) return true;
+    if (a == null || b == null) return false;
+    if (a.length !== b.length) return false;
+    for (let i = 0; i < a.length; ++i) {
+      if (a[i] !== b[i]) return false;
+    }
+    return true;
+  }
+
+  $(document).keyup(function(event) {
+    console.log(event.keyCode);
+  });
+
+  $(document).keyup(function(event) {
+    if (event.keyCode !== 13) {
+      userInput.push(event.keyCode)
+      $("#cheatCode").before(`<span class="input">${event.keyCode} </span>`)
+    }
+  });
+
+  $(document).on('keypress', function(event) {
+    let cheatTest;
+    if (event.which === 13) {
+      // console.log(userInput)
+      cheatTest = equalArray(userInput, konamiCode);
+      $("#cheatCode").before(`<p class="white input">Running user input ${userInput}</p>`)
+
+      if (cheatTest === true) {
+        $("#cheatCode").before(`<p class="input success">You Have 30 Lives! \\O.O/</p>`);
+      } else {
+        $("#cheatCode").before(`<p class="input">You Have nothing... :(</p>`);
+      }
+      userInput = [];
+    }
+  });
+
+  $(document).ready(function(){
+    $("button").click(function(){
+      location.reload(true);
+    });
+  });
+
+
+</script>
+</body>
+</html>
