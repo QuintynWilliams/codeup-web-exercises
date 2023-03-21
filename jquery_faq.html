@@ -3,67 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <title>National Parks: 10 FAQs</title>
-  <link rel="stylesheet" href="css/resets.css">
-  <link rel="stylesheet" href="css/layout.css">
-
-  <style>
-    html {
-      position: relative;
-    }
-    body {
-      background-color: #3d3d3d;
-      color: white;
-    }
-    h1{
-      margin-bottom: 20px;
-    }
-    dl {
-      width: 750px;
-    }
-    dt {
-      font-weight: bold;
-      cursor: pointer;
-    }
-    dd {
-      font-family: Helvetica,sans-serif;
-      margin-left: 15px;
-      margin-bottom: 20px;
-      width: auto;
-      color: white;
-      background: linear-gradient(to right, rgb(122, 157, 50) 75%, rgba(255, 255, 255, 0));
-      border-radius: 5px 0 0 5px;
-      padding: 5px 10px;
-      text-shadow: black 0 1px 0;
-    }
-    .invisible {
-      visibility: hidden;
-      display: none;
-    }
-    .background {
-      margin-top: 75px;
-      position: absolute;
-      color: rgba(0, 0, 0, 0.32);
-      z-index: 1;
-    }
-    .bg-img {
-      min-width: 100vw;
-      z-index: -1;
-    }
-    .column {
-      z-index: 1;
-    }
-
-  </style>
+    <link rel="stylesheet" href="css/resets.css">
+    <link rel="stylesheet" href="css/layout.css">
+    <link rel="stylesheet" href="css/jquery-faq.css">
 </head>
 <body>
+<div class="overlay"></div>
 <div class="page-wrapper">
-  <div class="container">
-    <div class="row">
+<div class="container">
+    <h1>Top Ten Questions about Glacier National Park</h1>
+  <div class="strip row">
+      <div class="column">
+          <div class="image-preview">
+    <!--  SLIDESHOW-->
+              <div class="gnp hide">
+                  <img src="images/gnp-1.jpeg" alt="goats-rest">
+              </div>
+          <div id="start" class="gnp hide">
+              <img src="images/gnp-2.jpeg" alt="goats-rest">
+              </div>
+              <div class="gnp hide">
+                  <img src="images/gnp-3.jpeg" alt="goats-rest">
+              </div>
+          </div>
+          <div class="row justify-space-between">
+              <button id="left" class="image-scroll"> < </button>
+              <button id="right" class="image-scroll"> > </button>
+          </div>
+      </div>
       <div class="column align-center">
-        <h1>Top Ten Questions about Glacier National Park</h1>
-        <button>Reveal</button>
-        <div class="FAQ column align-center">
-          <dl>
+<!-- - - - - PART ONE - - - - -->
+          <div class="FAQ column align-center">
+        <dl>
           <dt>Where is Glacier National Park located?</dt>
           <dd class="invisible">Glacier National Park is located in northwestern Montana on the U.S./Canadian border. Access to the park from the east and west is along U.S. Highway 2. Park headquarters is located in West Glacier.</dd>
           <dt>When is the park open?</dt>
@@ -105,32 +76,52 @@
           <dt>Can I drive my RV along the Going-to-the-Sun Road?</dt>
           <dd class="invisible">Vehicles, and vehicle combinations, longer than 21 feet (including bumpers) or wider than 8 feet (including mirrors) are prohibited between Avalanche Campground and the Sun Point parking area. You may however, drive to Avalanche if traveling east, and to Sun Point, if traveling west. Vehicles over 10 feet in height may have difficulty driving west from Logan Pass due to rock overhangs. Stock trucks and trailers may access Packers Roost and Siyeh Bend.</dd>
         </dl>
-        </div>
       </div>
+          <button id="reveal">Reveal</button>
+<!-- - - - - PART TWO - - - - -->
+        <div class="row">
+            <div class="column">
+                <h3 class="point" id="national-parks-heading">National Parks</h3>
+                <ul id="national-parks">
+                    <li>Arches</li>
+                    <li>Badlands</li>
+                    <li>Carlsbad Caverns</li>
+                    <li>Denali</li>
+                    <li>Everglades</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3 class="point">State Parks of Texas</h3>
+                <ul id="state-parks-texas">
+                    <li>Abilene</li>
+                    <li>Big Bend</li>
+                    <li>Choke Canyon</li>
+                    <li>Davis Mountains</li>
+                    <li>Enchanted Rock</li>
+                </ul>
+            </div>
+            <div class="column">
+                <h3 class="point">Other Parks</h3>
+                <ul id="state-parks-thing">
+                    <li>Consectetur</li>
+                    <li>Nihil</li>
+                    <li>Debitis</li>
+                    <li>Hic</li>
+                    <li>Labore</li>
+                </ul>
+            </div>
+        </div>
+
+
+
+    <button class="point" id="highlight">Highlight</button>
     </div>
   </div>
 </div>
+</div>
 
+<!-- - - - - SCRIPT - - - - -->
 <script src="js/jquery.js"></script>
-<script>
-
-  let $reveal = $('button');
-  let $answer = $('dd');
-
-  $reveal.on('click', function() {
-    if ($answer.attr('class') === 'invisible') {
-      $answer.removeClass('invisible')
-    } else {
-      $answer.addClass('invisible')
-    }
-  })
-
-  // $answer.on('click', function () {
-  //   $(this).next().fadeToggle()
-  // })
-
-
-
-</script>
+<script src="js/jquery-faq.js"></script>
 </body>
 </html>
