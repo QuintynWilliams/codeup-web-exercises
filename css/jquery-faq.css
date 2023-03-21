@@ -1,18 +1,20 @@
 
 html {
     position: relative;
+    overflow: hidden;
 }
 body {
     background-image: url("/codeup-web-exercises/images/topo-white.webp");
     color: white;
-    font-size: 12px;
+    font-size: 16px;
     font-family: "Helvetica Neue", sans-serif;
 }
 h1{
-    font-family: "Times New Roman",sans-serif;
+    width: 90%;
+    text-align: center;
     font-size: 40px;
-    color: black;
-    text-shadow: 0 3px 3px white;
+    color: white;
+    text-shadow: 0 0 3px black;
     font-weight: bold;
     margin: 15px 0 0 0;
     border-bottom: 10px ridge saddlebrown;
@@ -32,10 +34,11 @@ dd {
     margin-left: 15px;
     margin-bottom: 20px;
     width: auto;
+    font-weight: bold;
     color: black;
-    background: linear-gradient(to right, rgb(164, 209, 181) 75%, rgba(255, 255, 255, 0));
+    background: linear-gradient(to right, rgb(158, 222, 185) 80%, rgba(255, 255, 255, 0));
     border-radius: 5px 0 0 5px;
-    padding: 5px 10px;
+    padding: 5px 50px 5px 10px;
 }
 ul {
     padding: 0;
@@ -45,12 +48,21 @@ ul {
 }
 button {
     font-weight: bold;
-    margin: 5px 0;
+    color: black;
+    margin: 10px 0;
     padding: 5px 10px;
     background-color: white;
     box-shadow: black 0 2px 10px;
-    border: none;
     border-radius: 20px;
+}
+
+
+.left.column {
+    max-width: 40vw;
+}
+
+.right.column {
+    max-width: 60vw;
 }
 
 .overlay {
@@ -65,7 +77,7 @@ button {
     min-height: 400px;
     padding: 15px;
     border-radius: 15px;
-    box-shadow: 0px 10px 50px 5px rgba(255, 255, 190, 0.75);
+    box-shadow: 0px 10px 50px 5px rgb(35, 35, 35);
 }
 .point{
     cursor: pointer;
@@ -86,16 +98,12 @@ button {
 }
 
 .FAQ {
-    min-width: 70vw;
+    min-height: 350px;
     padding: 5px 0 0 15px;
     color: white;
     background-color: rgba(0, 0, 0, 0.4);
     overflow: auto;
     border: 10px ridge saddlebrown;
-}
-
-.park-list {
-    margin-top: 15px;
 }
 
 .gnp {
@@ -104,5 +112,28 @@ button {
 
 .hide {
     display: none;
+}
+
+.park-list {
+    margin-top: 20px;
+}
+
+.image-preview {
+    position: relative;
+}
+
+.img-left {
+    position: absolute;
+    z-index: -1;
+    left: 100px;
+}
+.img-center {
+    position: absolute;
+    z-index: 0;
+}
+.img-right {
+    position: absolute;
+    z-index: -1;
+    left: 100px;
 }
 
