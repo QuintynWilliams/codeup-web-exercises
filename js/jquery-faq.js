@@ -51,30 +51,43 @@ $listItem.on('click', function() {
 let $scroll = $('.image-scroll')
 let $preview = $('.gnp')
 let $curr = $('#start')
+let $start = $('#start')
+let $first = $('#first')
+let $last = $('#last')
 
-
-// $scroll.on('click', function() {
-//     if ($(this).text() === " < ") {
-//         $preview.prev('div').toggleClass('hide')
-//         console.log('left')
-//     } else if ($(this).text() === " > ") {
-//         $preview.next('div').toggleClass('hide')
-//         console.log('right')
-//     }
-// });
 
 $curr.toggleClass('hide');
 $scroll.on('click', function() {
     if ($(this).text() === " < ") {
-        $preview.prev('div').toggleClass('hide')
-        console.log('left')
+        if ($curr.attr('id') === 'start') {
+            $curr.toggleClass('hide')
+            $first.toggleClass('hide')
+            $curr = $('#first')
+        } else if ($curr.attr('id') === 'first') {
+            $curr.toggleClass('hide')
+            $last.toggleClass('hide')
+            $curr = $('#last')
+        } else if ($curr.attr('id') === 'last') {
+            $curr.toggleClass('hide')
+            $start.toggleClass('hide')
+            $curr = $('#start')
+        }
     } else if ($(this).text() === " > ") {
-        $preview.next('div').toggleClass('hide')
-        console.log('right')
+        if ($curr.attr('id') === 'start') {
+            $curr.toggleClass('hide')
+            $last.toggleClass('hide')
+            $curr = $('#last')
+        } else if ($curr.attr('id') === 'last') {
+            $curr.toggleClass('hide')
+            $first.toggleClass('hide')
+            $curr = $('#first')
+        } else if ($curr.attr('id') === 'first') {
+            $curr.toggleClass('hide')
+            $start.toggleClass('hide')
+            $curr = $('#start')
+        }
     }
 });
-
-
 
 
 
