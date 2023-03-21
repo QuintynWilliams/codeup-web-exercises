@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://java.codeup.com/examples/javascript/ajax-store.html -->
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <title>Online Store</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        table {
+            margin-bottom: 30px;
+        }
+        td {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+<h1>My Tool Store</h1>
+
+<table id="products">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Categories</th>
+        </tr>
+    </thead>
+    <tbody id="insertProducts">
+
+    </tbody>
+</table>
+<button id="refresh">REFRESH</button>
+
+<script src="./js/ajax-store_files/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+(function() {
+    "use strict";
+    // TODO: Create an AJAX GET request for the file under data/inventory.json
+    let insertProducts = document.querySelector('#insertProducts');
+
+    const getInventory = async () => {
+        let response = await fetch(`./js/inventory.json`);
+        let data = await response.json();
+        return data
+    }
+
+
+    (async () => {
+        let inventory = await getInventory()
+        console.log(inventory)
+
+        function renderInvs (array) {
+            let html = '';
+            for(let i = 0; i < array.length; i++) {
+                html += renderInv(array[i]);
+            }
+            return html;
+        }
+
+        const renderInv = (inv) => {
+            let html = `<tr>`;
+            html += `<td>${inv.title}</td>`;
+            html += `<td>${inv.quantity}</td>`;
+            html += `<td>${inv.price}</td>`;
+            html += `<td>${inv.categories}</td>`;
+            html += `</tr>`;
+            return html;
+        }
+
+        insertProducts.innerHTML = renderInvs(inventory);
+
+    }) ();
+
+    let refresh = document.querySelector('#refresh')
+    refresh.addEventListener('click', () => {
+        console.log("you clicked me")
+    })
+
+    // TODO: Take the data from inventory.json and append it to the products table
+    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
+    //             its contents and fields
+    //       HINT: You will want to target #insertProducts for your new HTML elements
+})();
+</script>
+
+
+
+</body></html>
