@@ -43,27 +43,30 @@
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
 
-       $.ajax(`./js/inventory.json`).done(function(got){
-           got.forEach(function(tool) {
-               $('#insertProducts').append(
-                   `<tr>
-                       <td>${tool.title}</td>
-                       <td>${tool.quantity}</td>
-                       <td>${tool.price}</td>
-                       <td>${tool.categories}</td>
-                   </tr>`
-               );
-           });
-       })
+    // $('#insertProducts')
+    //
+    //    $.ajax(`./js/inventory.json`).done(function(got){
+    //        got.forEach(function(tool) {
+    //            $('#insertProducts').append(
+    //                `<tr>
+    //                    <td>${tool.title}</td>
+    //                    <td>${tool.quantity}</td>
+    //                    <td>${tool.price}</td>
+    //                    <td>${tool.categories}</td>
+    //                </tr>`
+    //            );
+    //        });
+    //    })
+    //
+    //     $('button').on('click', async function() {
+    //         $.ajax(`./js/inventory.json`).done(function(){
+    //             $('#insertProducts').html = '';
+    //
+    //         })
+    //     })
 
-        $('button').on('click', function() {
-            $.ajax(`./js/inventory.json`).done(function(got){
-                console.log('Inventory Reload')
-            })
-        })
 
 
-/*
     let insertProducts = document.querySelector('#insertProducts');
 
     const getInventory = async () => {
@@ -96,7 +99,14 @@
         }
 
         insertProducts.innerHTML = renderInvs(inventory);
-*/
+
+        document.querySelector('#refresh').addEventListener('click', async function() {
+            document.querySelector('#insertProducts').innerHTML='';
+            let inventoryrefresh = await getInventory();
+            document.querySelector('#insertProducts').innerHTML = renderInvs(inventoryrefresh);
+        });
+    })();
+
 
 
 //  TODO: Take the data from inventory.json and append it to the products table

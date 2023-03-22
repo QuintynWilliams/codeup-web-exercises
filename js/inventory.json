@@ -34,7 +34,8 @@
     "title": "thing1",
     "quantity": 99,
     "categories": [
-        "Space-tool"
+        "space",
+        "tool"
     ],
     "price": 20
 }, {
