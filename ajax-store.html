@@ -42,34 +42,28 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
-   $.ajax(`./js/inventory.json`).done(function(got){
-       got.forEach(function(tool) {
-           $('#insertProducts').append(
-               `<tr>
-                   <td>${tool.title}</td>
-                   <td>${tool.quantity}</td>
-                   <td>${tool.price}</td>
-                   <td>${tool.categories}</td>
-               </tr>`
-           );
-       });
-       $('button').on('click', function() {
-           $('#insertProducts').html('');
+
+       $.ajax(`./js/inventory.json`).done(function(got){
            got.forEach(function(tool) {
                $('#insertProducts').append(
-               `<tr>
-                   <td>${tool.title}</td>
-                   <td>${tool.quantity}</td>
-                   <td>${tool.price}</td>
-                   <td>${tool.categories}</td>
-               </tr>`
-               )
-           })
+                   `<tr>
+                       <td>${tool.title}</td>
+                       <td>${tool.quantity}</td>
+                       <td>${tool.price}</td>
+                       <td>${tool.categories}</td>
+                   </tr>`
+               );
+           });
        })
-   })
+
+        $('button').on('click', function() {
+            $.ajax(`./js/inventory.json`).done(function(got){
+                console.log('Inventory Reload')
+            })
+        })
 
 
-
+/*
     let insertProducts = document.querySelector('#insertProducts');
 
     const getInventory = async () => {
@@ -102,8 +96,8 @@
         }
 
         insertProducts.innerHTML = renderInvs(inventory);
+*/
 
-    }) ();
 
 //  TODO: Take the data from inventory.json and append it to the products table
 //      HINT: Your data should come back as a JSON object; use console.log() to inspect
