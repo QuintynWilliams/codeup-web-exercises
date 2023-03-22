@@ -42,6 +42,34 @@
 (function() {
     "use strict";
     // TODO: Create an AJAX GET request for the file under data/inventory.json
+   $.ajax(`./js/inventory.json`).done(function(got){
+       got.forEach(function(tool) {
+           $('#insertProducts').append(
+               `<tr>
+                   <td>${tool.title}</td>
+                   <td>${tool.quantity}</td>
+                   <td>${tool.price}</td>
+                   <td>${tool.categories}</td>
+               </tr>`
+           );
+       });
+       $('button').on('click', function() {
+           $('#insertProducts').html('');
+           got.forEach(function(tool) {
+               $('#insertProducts').append(
+               `<tr>
+                   <td>${tool.title}</td>
+                   <td>${tool.quantity}</td>
+                   <td>${tool.price}</td>
+                   <td>${tool.categories}</td>
+               </tr>`
+               )
+           })
+       })
+   })
+
+
+
     let insertProducts = document.querySelector('#insertProducts');
 
     const getInventory = async () => {
@@ -58,12 +86,12 @@
         function renderInvs (array) {
             let html = '';
             for(let i = 0; i < array.length; i++) {
-                html += renderInv(array[i]);
+                html += renderHtml(array[i]);
             }
             return html;
         }
 
-        const renderInv = (inv) => {
+        const renderHtml = (inv) => {
             let html = `<tr>`;
             html += `<td>${inv.title}</td>`;
             html += `<td>${inv.quantity}</td>`;
@@ -77,15 +105,12 @@
 
     }) ();
 
-    let refresh = document.querySelector('#refresh')
-    refresh.addEventListener('click', () => {
-        console.log("you clicked me")
-    })
+//  TODO: Take the data from inventory.json and append it to the products table
+//      HINT: Your data should come back as a JSON object; use console.log() to inspect
+//          nits contents and fields
+//      HINT: You will want to target #insertProducts for your new HTML elements
 
-    // TODO: Take the data from inventory.json and append it to the products table
-    //       HINT: Your data should come back as a JSON object; use console.log() to inspect
-    //             its contents and fields
-    //       HINT: You will want to target #insertProducts for your new HTML elements
+
 })();
 </script>
 

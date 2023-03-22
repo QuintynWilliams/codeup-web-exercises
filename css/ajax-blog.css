@@ -1,0 +1,140 @@
+* {
+    font-family: 'Press Start 2P', sans-serif;
+    color: white;
+    background-color: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: cursive;
+    position: relative;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.navbar {
+    color: #fff;
+    border-bottom: 3px solid white;
+    margin-top: 50px;
+}
+
+.nav-links a {
+    color: #fff;
+}
+
+
+/* LOGO */
+
+.logo {
+    position: absolute;
+    font-size: 32px;
+    line-height: 1;
+    text-align: center;
+    padding: 0 10px;
+}
+
+/* NAVBAR MENU */
+
+.nav-links li:hover {
+    box-shadow: 10px 5px 5px #15a65d;
+    border-radius: 1px;
+    transition: 0.3s ease;
+}
+
+.nav-links li {
+    padding: 5px 14px;
+    border-radius: 20px;
+}
+.services {
+    position: relative;
+}
+
+.dropdown {
+    background-color: white;
+    padding: 1em 0;
+    position: absolute; /*WITH RESPECT TO PARENT*/
+    display: none;
+    border-radius: 8px;
+    top: 35px;
+}
+
+.dropdown li + li {
+    margin-top: 10px;
+}
+
+.dropdown li {
+    padding: 0.5em 1em;
+    width: 8em;
+    text-align: center;
+}
+
+.dropdown li:hover {
+    border: 1px solid #15a65d;
+}
+
+.services:hover .dropdown {
+    display: block;
+}
+
+
+/*Posts*/
+
+#posts {
+    margin: 30px 50px;
+    gap: 40px;
+}
+
+.blog > div > span {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+.head {
+    gap: 50px;
+    padding: 10px;
+    border-left: 5px solid #15a65d;
+    border-top: 2px solid #15a65d;
+}
+
+.content {
+    background: linear-gradient(rgba(30, 131, 80, 0.49), #091a06);
+    font-family: "Helvetica Neue", sans-serif;
+    padding: 15px 20px;
+    border-left: 5px solid white;
+    border-top: 2px solid white;
+    box-shadow: #15a65d 0 3px 10px;
+    border-radius: 0 0 20px 0;
+}
+
+.content:hover {
+    box-shadow: white 0 3px 10px;
+}
+
+.title {
+    font-weight: bold;
+}
+.categories {
+    font-weight: bold;
+    color: #15a65d;
+}
+.date {
+    align-self: end;
+    font-weight: bold;
+    font-size: 12px;
+    color: darkgray;
+}

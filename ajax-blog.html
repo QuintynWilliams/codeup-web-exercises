@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ajax Blog</title>
+    <link href="css/resets.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/ajax-blog.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="page-wrapper">
+<div class="container">
+<div class="row">
+    <div class="column align-center">
+        <div class="logo row justify-space-between">Ajax Blog
+            <label for="searchbar">
+                <input id="searchbar" type="text" placeholder="Search-a-post">
+            </label>
+        </div>
+        <nav class="navbar row">
+            <ul class="nav-links row justify-space-between">
+                <li><a href="/">Home</a></li>
+                <li><a href="/">Discover</a></li>
+                <li><a href="/">Profile</a></li>
+                <li><a href="/">Settings</a></li>
+            </ul>
+        </nav>
+        <div class="recent-posts">
+            <h1>RECENT POSTS</h1>
+            <div id="posts" class="column justify-top"></div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script src="./js/ajax-store_files/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+
+<script>
+(function() {
+    "use strict";
+
+    $.ajax(`./js/ajax-blog.json`).done(function(got){
+        got.forEach(function(post) {
+            $('#posts').append(
+                `<div class="blog">
+                    <div class="row head justify-space-between">
+                        <span class="title">${post.title}</span>
+                        <span class="categories">${post.categories}</span>
+                        <span class="date">${post.date}</span>
+                    </div>
+                    <div class="content">${post.content}</div>
+                </div>`
+            );
+        });
+    })
+
+
+})();
+</script>
+</body>
+</html>
