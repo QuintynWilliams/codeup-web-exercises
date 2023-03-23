@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weather Map</title>
+    <script src="js/keys.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
+    <link href="css/resets.css" rel="stylesheet">
+    <link href="css/layout.css" rel="stylesheet">
+    <link href="css/weather_map.css" rel="stylesheet">
+</head>
+<body>
+<div class="page-wrapper">
+<div class="container">
+    <div class="row justify-center">
+        <div class="column align-center">
+<!--        Header    -->
+            <div class="row justify-space-between">
+                <h1>WeatherMap Project</h1>
+                <div>
+                   <p>Current City: <span id="currCity"></span></p>
+                </div>
+            </div>
+
+<!--        User Query   -->
+            <form class="row justify-left align-center text-center gap-10">
+                <label for="searchWeather">Enter an address:</label>
+                <input type="text" name="setMarker" id="searchWeather">
+                <button id="searchWeatherButton">Set Marker</button>
+            </form>
+
+            <!--        date | high&&low | icon | description | humidity | wind | pressure-->
+
+
+<!--        Weather Render   -->
+            <div id="weather" class="row justify-space-between"></div>
+
+<!--        MapBox Render   -->
+            <div id="map"></div>
+
+
+
+
+
+        </div>
+    </div>
+</div>
+</div>
+
+
+<!--    Enabling jQuery Use    -->
+<script src="js/jquery.js"></script>
+<!-- Mapbox Geocoder UTILS -->
+<script src="js/mapbox-geocoder-utils.js"></script>
+<!--    Mapbox UTILS    -->
+<script src="js/weather_map_utils.js"></script>
+<!-- Mapbox API  -->
+<script>
+    mapboxgl.accessToken = MAPBOX_API_TOKEN;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
+        center: [-98.495141, 29.4246], // starting position [lng, lat]
+        zoom: 11.5, // starting zoom
+    });
+</script>
+<!--    Mapbox && OpenWeather API handling    -->
+<script src="js/weather_map.js"></script>
+
+
+
+</body>
+</html>
