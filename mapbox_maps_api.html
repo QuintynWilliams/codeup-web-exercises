@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Mapbox APIs</title>
+    <script src="js/keys.js"></script>
+    <script src='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.js'></script>
+    <link href='https://api.mapbox.com/mapbox-gl-js/v2.13.0/mapbox-gl.css' rel='stylesheet' />
     <link href="css/resets.css" rel="stylesheet">
     <link href="css/layout.css" rel="stylesheet">
     <link href="css/mapbox_maps_api.css" rel="stylesheet">
@@ -10,37 +13,123 @@
 <body>
 <div class="page-wrapper">
 <div class="container">
-  <div class="row">
-    <header></header>
+<div class="row justify-center">
+    <div class="column align-center">
 
-<!--The HTML element that serves as the Mapbox container -->
-    <div id='map'></div>
+<!--        The HTML element that serves as the Mapbox container -->
+        <div id='map'></div>
+        <div class="row">
+            <form class="column justify-center align-center text-center gap-10">
+                <label for="zoom">Set zoom:</label>
+                <select id="zoom">
+                    <option value="5">5</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                </select>
+                <button id="zoomSubmit">Zoom</button>
+            </form>
+            <form class="column justify-center align-center text-center gap-10">
+                <label for="setMarker">Enter an address:</label>
+                <input type="text" name="setMarker" id="setMarker">
+                <button id="setMarkerButton">Set Marker</button>
+            </form>
+            <button id="clearMap">Clear</button>
+        </div>
+    </div>
 
-
-  </div>
 </div>
 </div>
+</div>
 
 
-<!-- Mapbox JS -->
-<script src='js/mapbox-gl.js'></script>
 <!-- Mapbox Geocoder Util Methods -->
-<script src="mapbox-geocoder-utils.js"></script>
+<script src="js/mapbox-geocoder-utils.js"></script>
+
 <!-- Custom JS -->
 <script>
-  mapboxgl.accessToken = YOUR_TOKEN_HERE;
-  var map = new mapboxgl.Map({
-    container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v9',
-    zoom: 10,
-    center: [-98.4916, 29.4252]
-  });
-  //      the  geocode method from mapbox-geocoder-utils.js
-  geocode("600 Navarro St #350, San Antonio, TX 78205", YOUR_TOKEN_HERE).then(function(result) {
-    console.log(result);
-    map.setCenter(result);
-    map.setZoom(20);
-  });
+//  the geocode method from mapbox-geocoder-utils.js
+
+    mapboxgl.accessToken = MAPBOX_API_TOKEN;
+    const map = new mapboxgl.Map({
+        container: 'map', // container ID
+        style: 'mapbox://styles/mapbox/outdoors-v12', // style URL
+        center: [50.60626346839128, 26.219583325972632], // starting position [lng, lat]
+        zoom: 11.5, // starting zoom
+    });
+
+    let favFood = [
+        {geo: [50.59109032301551, 26.20846216414102],
+            name: 'Senor Pacos',
+            pic: 'senor-pacos.png',
+            description: 'When you want Chile Rellanos, but Saudi is in the way.'
+        },
+        {geo: [50.60626346839128, 26.219583325972632],
+            name: 'Big Texas Barbeque & Waffle House',
+            pic: 'big-tex.png',
+            description: 'Best BBQ 10,000 miles from Texas'
+        },
+        {geo: [50.541755, 26.165319],
+            name: 'German Donner Kebab',
+            pic: 'german-doner-kebab.webp',
+            description: 'Not German, but makes you wish it was.'
+        }
+    ]
+
+    // favFood.forEach(spot => {
+    //     const location = new mapboxgl.Marker().setLngLat(spot.geo).addTo(map);
+    //     console.log(location)
+    //     const name = new mapboxgl.Popup().setHTML(`
+    //         <div class="popup">
+    //             <div>
+    //                 <img src="images/mapbox_food/${spot.pic}" alt="logo- addimage" height="50px" width="auto">
+    //             </div>
+    //             <p>${spot.name}</p>
+    //             <p style="color: grey;">${spot.description}</p>
+    //         </div>
+    //     `)
+    //     console.log(name)
+    //     location.setPopup(name)
+    // })
+
+
+const sP = new mapboxgl.Marker().setLngLat([50.59109032301551, 26.20846216414102]);
+const bT = new mapboxgl.Marker().setLngLat([50.60626346839128, 26.219583325972632]);
+const gK = new mapboxgl.Marker().setLngLat([50.541755, 26.165319]);
+
+// Define the animation.
+function animateMarker(timestamp) {
+    const aniMarker = 0.0003;
+
+        sP.setLngLat([
+            50.59109032301551,
+            26.20846216414102 + (Math.abs(Math.sin(timestamp / 1000)) * aniMarker)
+        ])
+        sP.addTo(map);
+
+
+        bT.setLngLat([
+            50.60626346839128,
+            26.219583325972632 + (Math.abs(Math.sin(timestamp / 1000)) * aniMarker)
+        ])
+        bT.addTo(map);
+
+        gK.setLngLat([
+            50.541755,
+            26.165319 + (Math.abs(Math.sin(timestamp / 1000)) * aniMarker)
+        ])
+        gK.addTo(map);
+
+// Request the next frame of the animation.
+    requestAnimationFrame(animateMarker);
+}
+
+// Start the animation.
+requestAnimationFrame(animateMarker);
+
+
+
 </script>
+<script src="js/mapbox_maps_api.js"></script>
+
 </body>
 </html>
