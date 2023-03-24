@@ -1,19 +1,94 @@
+*{
+    font-family: "Helvetica Neue", sans-serif;
+}
+body {
+    position: relative;
+}
+
+/*JS SELECTORS*/
 #map {
-    min-height: 50vh;
+    position: absolute;
+    top: 0;
+    left:0;
+    min-height: 100vh;
     min-width: 100vw;
-    margin: 10px 0;
     padding: 0 15px;
+    border: 2px solid black;
 }
 
 #weather {
     min-height: 25vh;
-    min-width: 100vw;
-    margin: 15px 0;
+    min-width: 95vw;
+    margin: 5px 10px;
+    border: 2px solid cornflowerblue;
+    border-radius: 20px;
+    background-color: rgba(0, 0, 0, 0.45);
+    padding: 15px 10px;
+}
+
+#currCity {
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 2px 2px 5px black;
+}
+
+
+/*FONT && TEXT SELECTORS*/
+:root {
+    --gray: #0a0a0a;
+/*var(--name, value)*/
+}
+
+
+h1 {
+    position: absolute;
+    top: -20px;
+    font-size: 60px;
+    padding: 10px 90px;
+    color: white;
+    text-shadow: 2px 2px 10px black;
+}
+
+
+/*Body Selectors*/
+
+#content {
+    z-index: 1;
+    min-height: 100vh;
+}
+
+#searchWeather {
+    all: unset;
+    padding-left: 15px;
+    font-weight: bold;
+    background-color: lightgray;
+    border: 2px solid black;
+    border-radius: 20px;
+    min-height: 35px;
+    min-width: 30vw;
+}
+
+#searchWeatherButton {
+    color: white;
+    font-weight: bold;
+    background-color: cornflowerblue;
+    border: 2px solid black;
+    border-radius: 20px;
+    min-height: 35px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.row {
+    padding: 0;
 }
 
 .weatherCard {
-    min-width: 15vw;
-    flex: 0 1 0;
-    border: 2px solid black;
-    border-radius: 5px;
+    border: 1px solid black;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.8);
 }
+
+
+

@@ -6,11 +6,38 @@
 let $weatherDiv = $('#weather')
 let $currCity = $('#currCity')
 let fiveCast = [];
-let totalTemps = [];
+let avgArray = [];
+
+
+let highTemp = [];
+let lowTemp = [];
+
+const avgTemps = (dayObject) => {
+    let day = namedDayFromDay(dayObject.dt);
+    let temp = dayObject.main.temp;
+    let hourObj = {
+        daycode: day,
+        daytemp: temp
+    }
+    avgArray.push(hourObj)
+    // for(let i = 0; i < avgArray.length; i++) {
+    //     let dayLow;
+    //     let dayHigh;
+    //     if (avgArray[i].daycode === avgArray[i++].daycode) {
+    //         for(let j = 0; j < )
+    //         let thoseTemps = avgArray.daytemp;
+    //         dayHigh = Math.max(thoseTemps);
+    //         dayLow = Math.min(thoseTemps);
+    //     }
+    //     highTemp.push(dayHigh);
+    //     lowTemp.push(dayLow);
+    // }
+}
+
 
 document.getElementById('searchWeatherButton').addEventListener('click', event => {
     event.preventDefault();
-    const address = document.getElementById("searchWeather").value;
+    const address = document.getElementById("searchWeather").value.toUpperCase();
     $currCity.html(address)
     fiveCast = [];
     getWeather(address);
@@ -49,7 +76,8 @@ const assignCover = (cover) => {
 const renderWeatherHTML = (wetData) => {
     let html = `<div class="weatherCard column align-center">`;
         html += `<span>${dateFromTimeStamp(wetData.dt)}</span>`;
-        html += `<span>H: 325 | L: 2351</span>`;
+        html += `<span>${namedDayFromDay(wetData.dt)}</span>`
+        html += `<span>${wetData.main.temp}°F</span>`;
         html += `<div class="weather-icon">`;
         html += `<img src="${assignCover(wetData.clouds.all)}" alt="poiadhf" height="50px" width="50px">`;
         html += `</div>`;
@@ -82,17 +110,14 @@ const getWeather = (cityName) => {
             units: 'imperial'
         }).done(data => {
             data.list.forEach((forecast, index) => {
+                avgTemps(forecast)
                 if (index % 8 === 0) {
                     fiveCast.push(forecast)
                 }
             })
             $weatherDiv.html(renderWeather(fiveCast));
+            console.log(avgArray)
         })
     })
 }
-
-
-// MAPBOX EVENT LISTENERS
-
-
 
