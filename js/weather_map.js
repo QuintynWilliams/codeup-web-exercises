@@ -43,6 +43,14 @@ document.getElementById('searchWeatherButton').addEventListener('click', event =
     getWeather(address);
     getMapData(address);
 })
+window.addEventListener ('load', (event) => {
+    event.preventDefault();
+    let start = 'SAN ANTONIO, TX'
+    $currCity.html(start)
+    getWeather(start);
+    getMapData(start);
+    })
+
 
 // Render MapBox Data
 const getMapData = (mapCity) => {
