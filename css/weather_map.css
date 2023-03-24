@@ -20,7 +20,7 @@ body {
     min-height: 25vh;
     min-width: 95vw;
     margin: 5px 10px;
-    border: 2px solid cornflowerblue;
+    border: 2px solid var(--blue);
     border-radius: 20px;
     background-color: rgba(0, 0, 0, 0.45);
     padding: 15px 10px;
@@ -36,18 +36,24 @@ body {
 
 /*FONT && TEXT SELECTORS*/
 :root {
-    --gray: #0a0a0a;
+    --black: rgba(0, 0, 0, 0.45);
+    --blue: cornflowerblue;
 /*var(--name, value)*/
 }
 
 
 h1 {
+    background-color: var(--black);
+    border: 1px solid var(--blue);
+    border-radius: 0 0 80px 80px ;
+    width: 95vw;
     position: absolute;
     top: -20px;
     font-size: 60px;
-    padding: 10px 90px;
+    padding: 10px 90px 0 90px;
     color: white;
     text-shadow: 2px 2px 10px black;
+    text-align: center;
 }
 
 
@@ -55,7 +61,8 @@ h1 {
 
 #content {
     z-index: 1;
-    min-height: 100vh;
+    min-height: 97vh;
+    pointer-events: none;
 }
 
 #searchWeather {
@@ -72,12 +79,16 @@ h1 {
 #searchWeatherButton {
     color: white;
     font-weight: bold;
-    background-color: cornflowerblue;
+    background-color: var(--blue);
     border: 2px solid black;
     border-radius: 20px;
     min-height: 35px;
     padding-left: 20px;
     padding-right: 20px;
+}
+
+.user-action {
+    pointer-events: auto;
 }
 
 .row {
