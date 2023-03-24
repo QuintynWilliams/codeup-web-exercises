@@ -12,30 +12,28 @@
 </head>
 <body>
 <div class="page-wrapper">
-<div class="container">
+    <div class="container">
+        <div id="map"></div>
+        <div id="body-wrap" class="row justify-left">
+            <!--    MapBox Render    -->
 
-<!--    MapBox Render    -->
-    <div id="map"></div>
+            <div id="content" class="user-action column">
+    <!--        User Query   -->
+                    <label for="searchWeather" class="user-action">
+                        <input type="text" name="setMarker" id="searchWeather" placeholder="Search">
+                    </label>
+                <span id="currCity"></span>
+    <!--        Weather Render   -->
+                <div id="weather" class="user-action column align-center">
 
-    <div id="content" class="column align-center justify-bottom">
-<!--        Header    -->
-        <h1>WeatherMap</h1>
+                </div>
 
-<!--        User Query   -->
-        <form class="row justify-space-between align-center text-center">
-            <div class="user-action">
-                <label for="searchWeather"></label>
-                <input type="text" name="setMarker" id="searchWeather" placeholder="Get Weather">
-                <button id="searchWeatherButton">Set Marker</button>
             </div>
-            <span id="currCity"></span>
-        </form>
 
-<!--        Weather Render   -->
-        <div id="weather" class="row justify-space-between"></div>
+        </div>
 
     </div>
-</div>
+
 </div>
 
 
@@ -53,14 +51,12 @@
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/navigation-night-v1', // style URL
         center: [-98.495141, 29.4146], // starting position [lng, lat]
-        zoom: 11.5, // starting zoom
+        zoom: 9, // starting zoom
     });
 </script>
 
 <!--    Mapbox && OpenWeather API handling    -->
 <script src="js/weather_map.js"></script>
-
-
 
 </body>
 </html>

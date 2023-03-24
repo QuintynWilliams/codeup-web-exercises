@@ -39,7 +39,7 @@
         wider screens don't disrupt the intended layout.
     */
 .row {
-    width: 100%;
+    width: 100vw;
     max-width: 1100px;
     display: flex;
     padding: 0 20px;
@@ -47,6 +47,9 @@
 }
 
 /* Combo classes to extend the row's versatility */
+.row.shrink {
+    flex: 0 1 auto;
+}
 .row.full-width {
     max-width: unset;
 }
@@ -89,6 +92,7 @@
     flex-direction: column;
     flex: 1 0 0;
 }
+
 
 /* Combo classes to extend the column's versatility */
 .column.shrink {

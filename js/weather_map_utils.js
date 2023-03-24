@@ -47,13 +47,14 @@ const months = ["JAN", "FEB", "MAR","APR", "MAY", "JUN", "JUL", "AUG", "SEP", "O
 
 function formatTime(timeStamp){
     let dateTime = new Date(timeStamp * 1000);
-    let year = dateTime.getFullYear();
+    // let year = dateTime.getFullYear();
     let month = months[dateTime.getMonth()];
     let day = dateTime.getDate();
-    let hour = appendLeadingZeroes(dateTime.getHours());
-    let minutes = appendLeadingZeroes(dateTime.getMinutes());
-    let seconds = appendLeadingZeroes(dateTime.getSeconds());
-    return month + " " + day + " " + year + " " + hour + ":" + minutes + ":" + seconds;
+    // let hour = appendLeadingZeroes(dateTime.getHours());
+    // let minutes = appendLeadingZeroes(dateTime.getMinutes());
+    // let seconds = appendLeadingZeroes(dateTime.getSeconds());
+    // + year + " " + hour + ":" + minutes + ":" + seconds;
+    return month + " " + day + " "
 }
 
 function dateFromTimeStamp(timeStamp){

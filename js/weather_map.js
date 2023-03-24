@@ -6,50 +6,26 @@
 let $weatherDiv = $('#weather')
 let $currCity = $('#currCity')
 let fiveCast = [];
-let avgArray = [];
 
 
-let highTemp = [];
-let lowTemp = [];
-
-const avgTemps = (dayObject) => {
-    let day = namedDayFromDay(dayObject.dt);
-    let temp = dayObject.main.temp;
-    let hourObj = {
-        daycode: day,
-        daytemp: temp
-    }
-    avgArray.push(hourObj)
-    // for(let i = 0; i < avgArray.length; i++) {
-    //     let dayLow;
-    //     let dayHigh;
-    //     if (avgArray[i].daycode === avgArray[i++].daycode) {
-    //         for(let j = 0; j < )
-    //         let thoseTemps = avgArray.daytemp;
-    //         dayHigh = Math.max(thoseTemps);
-    //         dayLow = Math.min(thoseTemps);
-    //     }
-    //     highTemp.push(dayHigh);
-    //     lowTemp.push(dayLow);
-    // }
-}
-
-
-document.getElementById('searchWeatherButton').addEventListener('click', event => {
-    event.preventDefault();
-    const address = document.getElementById("searchWeather").value.toUpperCase();
-    $currCity.html(address)
-    fiveCast = [];
-    getWeather(address);
-    getMapData(address);
-})
 window.addEventListener ('load', (event) => {
     event.preventDefault();
     let start = 'SAN ANTONIO, TX'
-    $currCity.html(start)
+    $currCity.html(start);
+    fiveCast = [];
     getWeather(start);
     getMapData(start);
-    })
+})
+
+document.getElementById('searchWeather').addEventListener('keypress', e => {
+    const address = document.getElementById("searchWeather").value.toUpperCase();
+    $currCity.html(address);
+    if (e.key === 'Enter') {
+        fiveCast = [];
+        getWeather(address);
+        getMapData(address);
+    }
+})
 
 
 // Render MapBox Data
@@ -63,6 +39,7 @@ const getMapData = (mapCity) => {
             .setHTML(`<p class="pin">${mapCity}</p>`);
         newMarker.setPopup(newPopup);
     })
+
 }
 
 // Render Cloud Cover Icon
@@ -82,17 +59,23 @@ const assignCover = (cover) => {
 
 // Create HTML String for Browser
 const renderWeatherHTML = (wetData) => {
-    let html = `<div class="weatherCard column align-center">`;
-        html += `<span>${dateFromTimeStamp(wetData.dt)}</span>`;
-        html += `<span>${namedDayFromDay(wetData.dt)}</span>`
-        html += `<span>${wetData.main.temp}°F</span>`;
-        html += `<div class="weather-icon">`;
-        html += `<img src="${assignCover(wetData.clouds.all)}" alt="poiadhf" height="50px" width="50px">`;
-        html += `</div>`;
-        html += `<span>Description: ${wetData.weather[0].description}</span>`;
-        html += `<span>Humidity: ${wetData.main.humidity} %</span>`;
-        html += `<span>Wind: ${wetData.wind.speed} mph ${windCardinalDirection(wetData.wind.deg)}</span>`;
-        html += `<span>Pressure: ${wetData.main.pressure} hPa</span>`;
+
+    let html = `<div class="weatherCard column shrink justify-bottom align-center">`;
+        html +=     `<span class="date" >${namedDayFromDay(wetData.dt)}, ${formatTime(wetData.dt)}</span>`;
+        html +=     `<div id="render-data" class="row justify-space-between">`;
+        html +=         `<div class="headWeather column justify-space-between align-center">`;
+        html +=         `<div class="weather-icon">`;
+        html +=             `<img src="${assignCover(wetData.clouds.all)}" alt="poiadhf" height="60px" width="60px">`;
+        html +=         `</div>`;
+        html +=         `<span class="temp">${ parseInt(wetData.main.temp)}°F</span>`;
+        html +=         `</div>`;
+        html +=         `<div class="info column justify-bottom align-left">`;
+        html +=             `<p> <span class="bold">Description:</span> ${wetData.weather[0].description}</p>`;
+        html +=             `<p> <span class="bold">Humidity:</span> ${wetData.main.humidity} %</p>`;
+        html +=             `<p> <span class="bold">Wind:</span> ${wetData.wind.speed} mph ${windCardinalDirection(wetData.wind.deg)}</p>`;
+        html +=             `<p> <span class="bold">Pressure:</span> ${wetData.main.pressure} hPa</p>`;
+        html +=         `</div>`;
+        html +=     `</div>`;
         html += `</div>`;
     return html;
 }
@@ -118,14 +101,13 @@ const getWeather = (cityName) => {
             units: 'imperial'
         }).done(data => {
             data.list.forEach((forecast, index) => {
-                avgTemps(forecast)
                 if (index % 8 === 0) {
                     fiveCast.push(forecast)
                 }
             })
             $weatherDiv.html(renderWeather(fiveCast));
-            console.log(avgArray)
         })
     })
 }
+
 
