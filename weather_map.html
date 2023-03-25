@@ -13,20 +13,26 @@
 <body>
 <div class="page-wrapper">
     <div class="container">
+<!--    MapBox Render    -->
         <div id="map"></div>
+        <pre id="info"></pre>
+        <pre id="coordinates" class="coordinates"></pre>
+
         <div id="body-wrap" class="row justify-left">
-            <!--    MapBox Render    -->
 
             <div id="content" class="user-action column">
-    <!--        User Query   -->
+                <div id="title">
+                    <h1>Weather Map</h1>
+                </div>
+<!--        User Query   -->
                     <label for="searchWeather" class="user-action">
                         <input type="text" name="setMarker" id="searchWeather" placeholder="Search">
                     </label>
-                <span id="currCity"></span>
-    <!--        Weather Render   -->
-                <div id="weather" class="user-action column align-center">
 
-                </div>
+                <span id="currCity"></span>
+
+<!--        Weather Render   -->
+                <div id="weather" class="user-action column align-center"></div>
 
             </div>
 
@@ -46,6 +52,8 @@
 <!-- Mapbox API  -->
 
 <script>
+    const coordinates = document.getElementById('coordinates');
+
     mapboxgl.accessToken = MAPBOX_API_TOKEN;
     const map = new mapboxgl.Map({
         container: 'map', // container ID
@@ -53,6 +61,7 @@
         center: [-98.495141, 29.4146], // starting position [lng, lat]
         zoom: 9, // starting zoom
     });
+
 </script>
 
 <!--    Mapbox && OpenWeather API handling    -->

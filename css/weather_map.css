@@ -7,6 +7,14 @@ html {
     font-family: "Helvetica Neue", sans-serif;
 }
 
+#title {
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    border-radius: 300px;
+}
+
 /*JS SELECTORS*/
 #map {
     position: absolute;
@@ -19,8 +27,7 @@ html {
 
 #currCity {
     color: white;
-    font-size: 24px;
-    font-weight: bold;
+    font-size: 1rem;
     text-shadow: 2px 2px 5px black;
 }
 
@@ -43,16 +50,13 @@ html {
     position: relative;
 }
 
-
-
 .weatherCard {
     min-height: 20%;
-    font-weight: bold;
-    padding: 10px 10px;
     font-size: 16px;
-    border: 1px solid var(--blue);
-    border-radius: 20px;
-    background: rgba(0, 0, 0, 0.19);
+    border-radius: 0 30px 30px 0;
+    border-width: 0;
+    border-right:1px solid var(--blue);
+    background-size: cover;
     transition: all ease-in 0.3s;
     margin: 20px 0;
     width: 100%;
@@ -60,26 +64,33 @@ html {
 }
 
 .weatherCard:hover {
+    min-height: 20%;
+    margin: 20px 0;
     transition: all ease 0.3s;
-    transform: scale(1.1);
+    transform: scale(1.05);
 }
 
-.weatherCard:first-child > * {
-    ;
+
+#weather > .weatherCard:first-of-type {
+
 }
 
 #render-data {
+    min-height: 100%;
     max-width: 100%;
-    padding: 0;
-    gap: unset;
+    background: rgba(0, 0, 0, 0.55);
+    border-radius: 0 30px 30px 0;
+    padding: 10px 0;
 }
 
 .date {
-    font-size: 20px;
+    font-weight: bold;
+    font-size: 22px;
+    color: var(--blue);
     position: absolute;
     line-height: 0;
-    top: 0;
-    left: 0;
+    top: -10px;
+    left: 15px;
 }
 
 .temp {
@@ -90,41 +101,47 @@ html {
 
 .headWeather {
     min-width: 30%;
+    padding-top: 5px;
 }
 
 .info {
     font-weight: lighter;
-    min-width: 70%;
+    min-width: 50%;
+    margin-left: 15px;
 }
 
 
 #content {
-    padding: 15px;
     justify-self: start;
     color: white;
-    flex: 0 0 400px;
+    width: 400px;
     min-height: 94vh;
     backdrop-filter: blur(10px);
     border-radius: 0 30px 30px 0;
     border-width: 0;
     border-right:1px solid var(--border-color);
-    background-color: rgba(0,0,0,0.12);
-    margin: 15px 0;
+    background-color: rgba(0, 0, 0, 0.15);
+    margin: 2vh 0 3vh 0;
     text-align: center;
     z-index: 1;
     box-shadow: black 3px 3px 10px;
-    position: relative;
-    overflow: auto;
+    position: absolute;
+    top: 0;
+    left: 0;
 }
 
 #weather {
-    overflow: auto;
+    padding: 20px 15px 0 0;
+    overflow-y: auto;
+    overflow-x: visible;
+    border-radius: 30px;
 }
 
 
 #searchWeather {
     all: unset;
-    width: 100%;
+    margin: 15px 15px 15px 5px;
+    width: 95%;
     text-align: center;
     padding: 0;
     font-weight: bold;
@@ -133,13 +150,10 @@ html {
     border: 2px solid black;
     border-radius: 20px;
     min-height: 35px;
-    z-index: 1;
-    margin-bottom: 15px;
 }
 
 #body-wrap {
     padding: 0;
-    min-width: 100vw;
 }
 
 .bg-image {
@@ -147,6 +161,11 @@ html {
 }
 
 .bold {
+    font-size: smaller;
     font-weight: bold;
+}
+
+#info {
+    z-index: 99;
 }
 
