@@ -32,6 +32,8 @@ document.getElementById('searchWeather').addEventListener('keypress', e => {
     if (e.key === 'Enter') {
         $currCity.html(address);
         fiveCast = [];
+        currCast = [];
+        currWeather(address);
         getWeather(address);
         getMapData(address);
     }
@@ -44,8 +46,10 @@ map.on('dblclick', (e) => {
     });
     let newMark = e.lngLat;
     fiveCast = [];
+    currCast = [];
     reverseGeocode(newMark, MAPBOX_API_TOKEN).then(namedCity => {
         $currCity.html(namedCity);
+        currWeather(namedCity);
         getWeather(namedCity);
         getMapData(namedCity)
     })
@@ -58,8 +62,10 @@ map.on('mouseup', (e) => {
     });
     let newMark = e.lngLat;
     fiveCast = [];
+    currCast = [];
     reverseGeocode(newMark, MAPBOX_API_TOKEN).then(namedCity => {
         $currCity.html(namedCity);
+        currWeather(namedCity);
         getWeather(namedCity);
         geocode(namedCity, MAPBOX_API_TOKEN).then(coords => {
             const newMarker = new mapboxgl.Marker({
@@ -116,7 +122,7 @@ const renderCurrHTML = (currData) => {
         html +=       ` <div class="column weather-icon align-center">`;
         html +=           ` <img src="images/weather_map_imgs/sunny.svg" alt="poiadhf" height="60px" width="60px">`;
         html +=       `</div>`;
-        html +=       ` <span class="column temp ">99 °F</span>`;
+        html +=       ` <span class="column temp ">${ parseInt(currData.main.temp)} °F</span>`;
         html +=   `</div>`;
         html += `</div>`;
     return html;
