@@ -29,6 +29,8 @@ html {
     color: white;
     font-size: 1rem;
     text-shadow: 2px 2px 5px black;
+    min-height: 5%;
+    overflow: scroll;
 }
 
 
@@ -41,7 +43,6 @@ html {
 }
 
 /*Body Selectors*/
-
 .user-action {
     pointer-events: auto;
 }
@@ -50,6 +51,9 @@ html {
     position: relative;
 }
 
+
+
+/*FORECAST WEATHER*/
 .weatherCard {
     min-height: 20%;
     font-size: 16px;
@@ -67,7 +71,7 @@ html {
     min-height: 20%;
     margin: 20px 0;
     transition: all ease 0.3s;
-    transform: scale(1.05);
+    transform: translateX(1%) scale(1.05);
 }
 
 
@@ -78,14 +82,15 @@ html {
 #render-data {
     min-height: 100%;
     max-width: 100%;
-    background: rgba(0, 0, 0, 0.55);
+    background: rgba(0, 0, 0, 0.8);
     border-radius: 0 30px 30px 0;
     padding: 10px 0;
+    gap: 0;
 }
 
 .date {
-    font-weight: bold;
-    font-size: 22px;
+    font-weight: 300;
+    font-size: 24px;
     color: var(--blue);
     position: absolute;
     line-height: 0;
@@ -96,17 +101,19 @@ html {
 .temp {
     line-height: 1;
     font-size: 30px;
-    color: var(--blue);
+    color: white;
 }
 
 .headWeather {
-    min-width: 30%;
+    min-width: 15%;
     padding-top: 5px;
 }
 
 .info {
-    font-weight: lighter;
-    min-width: 50%;
+    font-weight: 300;
+    color: white;
+    /*text-shadow: 1 1px black;*/
+    min-width: 67%;
     margin-left: 15px;
 }
 
@@ -167,5 +174,54 @@ html {
 
 #info {
     z-index: 99;
+}
+
+
+/*CURRENT WEATHER*/
+#currCast {
+    justify-self: center;
+    color: white;
+    width: 67vw;
+    backdrop-filter: blur(10px);
+    border-radius:30px;
+    border-width: 0;
+    border-right:1px solid var(--border-color);
+    border-left:1px solid var(--border-color);
+    background-color: rgba(0, 0, 0, 0.15);
+    text-align: center;
+    z-index: 1;
+    box-shadow: black 3px 3px 10px;
+    position: absolute;
+    margin: 2vh 3vh 0 0;
+    top: 0;
+    left: 410px;
+}
+
+.currCard {
+    min-height: 20%;
+    font-size: 16px;
+    border-radius: 30px;
+    border-width: 0;
+    border-right:1px solid var(--blue);
+    border-left:1px solid var(--blue);
+    background-size: cover;
+    transition: all ease-in 0.3s;
+    margin: 30px 0 20px 0;
+    width: 100%;
+    position: relative;
+}
+
+#currCast span.date {
+    position: center;
+    font-size: 26px;
+}
+
+#curr-render-data {
+    min-height: 100%;
+    max-width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 30px;
+    padding: 10px 0;
+    gap: 0;
 }
 

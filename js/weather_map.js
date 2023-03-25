@@ -1,7 +1,9 @@
 
 // Global Variables
 let $weatherDiv = $('#weather')
+let $currDiv = $('#currCast')
 let $currCity = $('#currCity')
+let currCast;
 let fiveCast = [];
 
 
@@ -12,9 +14,11 @@ window.addEventListener ('load', (event) => {
     markers.forEach(thing => {
         thing.remove()
     });
-    let start = 'SAN ANTONIO, TX'
+    let start = 'BANDERA, TX'
     $currCity.html(start);
-    fiveCast = [];
+    fiveCast = []
+    currCast = [];
+    currWeather(start);
     getWeather(start);
     getMapData(start);
 })
@@ -100,11 +104,28 @@ const assignBack = (cover) => {
 }
 
 // Create HTML String for Browser
-const renderWeatherHTML = (wetData) => {
+const renderCurrHTML = (currData) => {
+    console.log(currData)
+    let html = `<div class="currCard column justify-center align-center" style="background-image: url('/codeup-web-exercises/${assignBack(currData.clouds.all)}')">`;
+        html +=    ` <span class="date">Current on: ${namedDayFromDay(currData.dt)}, ${formatTime(currData.dt)}</span>`;
+        html +=    ` <div id="curr-render-data" class="row align-bottom">`;
+        html +=       ` <p class="column"><span class="bold">Description:</span> ${currData.weather[0].description}`;
+        html +=       ` <p class="column"><span class="bold">Humidity:</span> ${currData.main.humidity} %`;
+        html +=       ` <p class="column"><span class="bold">Wind:</span> ${currData.wind.speed} mph ${windCardinalDirection(currData.wind.deg)}`;
+        html +=       ` <p class="column"><span class="bold">Pressure:</span> ${currData.main.pressure} hPa`;
+        html +=       ` <div class="column weather-icon align-center">`;
+        html +=           ` <img src="images/weather_map_imgs/sunny.svg" alt="poiadhf" height="60px" width="60px">`;
+        html +=       `</div>`;
+        html +=       ` <span class="column temp ">99 °F</span>`;
+        html +=   `</div>`;
+        html += `</div>`;
+    return html;
+}
 
+const renderWeatherHTML = (wetData) => {
     let html = `<div class="weatherCard column justify-center align-center" style="background-image: url('/codeup-web-exercises/${assignBack(wetData.clouds.all)}')">`;
         html +=     `<span class="date" >${namedDayFromDay(wetData.dt)}, ${formatTime(wetData.dt)}</span>`;
-        html +=     `<div id="render-data" class="row justify-space-between">`;
+        html +=     `<div id="render-data" class="row">`;
         html +=         `<div class="info column justify-space-between align-left">`;
         html +=             `<p> <span class="bold">Description:</span> ${wetData.weather[0].description}</p>`;
         html +=             `<p> <span class="bold">Humidity:</span> ${wetData.main.humidity} %</p>`;
@@ -112,9 +133,9 @@ const renderWeatherHTML = (wetData) => {
         html +=             `<p> <span class="bold">Pressure:</span> ${wetData.main.pressure} hPa</p>`;
         html +=         `</div>`;
         html +=         `<div class="headWeather column justify-space-between align-center">`;
-        html +=         `<div class="weather-icon">`;
-        html +=             `<img src="${assignCover(wetData.clouds.all)}" alt="poiadhf" height="60px" width="60px">`;
-        html +=         `</div>`;
+        html +=             `<div class="weather-icon">`;
+        html +=                 `<img src="${assignCover(wetData.clouds.all)}" alt="poiadhf" height="60px" width="60px">`;
+        html +=             `</div>`;
         html +=         `<span class="temp">${ parseInt(wetData.main.temp)}°F</span>`;
         html +=         `</div>`;
         html +=     `</div>`;
@@ -123,13 +144,21 @@ const renderWeatherHTML = (wetData) => {
 }
 
 // Outside HTML Concatonator
-function renderWeather(array) {
+function renderWeather(dataSet) {
     let html = '';
-    for(let i = 0; i < fiveCast.length; i++) {
-        html += renderWeatherHTML(array[i]);
-    }
+        for(let i = 0; i < dataSet.length; i++) {
+            console.log(dataSet)
+            html += renderWeatherHTML(dataSet[i]);
+        }
     return html;
 }
+
+function renderCurrWeather(currData) {
+    let html = '';
+        html += renderCurrHTML(currData);
+    return html;
+}
+
 
 // Render Weather Data
 const getWeather = (cityName) => {
@@ -143,7 +172,7 @@ const getWeather = (cityName) => {
             units: 'imperial'
         }).done(data => {
             data.list.forEach((forecast, index) => {
-                if (index % 8 === 0) {
+                if (index % 8 === 0 && index !== 0) {
                     fiveCast.push(forecast)
                 }
             })
@@ -151,6 +180,25 @@ const getWeather = (cityName) => {
         })
     })
 }
+
+// Render Current Weather
+
+const currWeather = (currHome) => {
+    geocode(currHome, MAPBOX_API_TOKEN).then(currGeo => {
+        const currLong = currGeo[0];
+        const currLat = currGeo[1];
+        $.get("https://api.openweathermap.org/data/2.5/weather", {
+            APPID: OPEN_WEATHER_APPID,
+            lat: currLat,
+            lon: currLong,
+            units: 'imperial'
+        }).done(data => {
+            currCast = data
+            $currDiv.html(renderCurrWeather(currCast));
+        })
+    })
+}
+
 
 // Render MapBox Data
 const getMapData = (mapCity) => {
