@@ -9,11 +9,9 @@ html {
 
 #title {
     font-size: 20px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    border-radius: 300px;
 }
+
+
 
 /*JS SELECTORS*/
 #map {
@@ -39,7 +37,6 @@ html {
     --black: rgba(0, 0, 0, 0.45);
     --blue: #2e98e3;
     --border-color: rgba(255,255,255,0.4)
-/*var(--name, value)*/
 }
 
 /*Body Selectors*/
@@ -50,73 +47,6 @@ html {
 .container {
     position: relative;
 }
-
-
-
-/*FORECAST WEATHER*/
-.weatherCard {
-    min-height: 20%;
-    font-size: 16px;
-    border-radius: 0 30px 30px 0;
-    border-width: 0;
-    border-right:1px solid var(--blue);
-    background-size: cover;
-    transition: all ease-in 0.3s;
-    margin: 20px 0;
-    width: 100%;
-    position: relative;
-}
-
-.weatherCard:hover {
-    min-height: 20%;
-    margin: 20px 0;
-    transition: all ease 0.3s;
-    transform: translateX(1%) scale(1.05);
-}
-
-
-#weather > .weatherCard:first-of-type {
-
-}
-
-#render-data {
-    min-height: 100%;
-    max-width: 100%;
-    background: rgba(0, 0, 0, 0.8);
-    border-radius: 0 30px 30px 0;
-    padding: 10px 0;
-    gap: 0;
-}
-
-.date {
-    font-weight: 300;
-    font-size: 24px;
-    color: var(--blue);
-    position: absolute;
-    line-height: 0;
-    top: -10px;
-    left: 15px;
-}
-
-.temp {
-    line-height: 1;
-    font-size: 30px;
-    color: white;
-}
-
-.headWeather {
-    min-width: 15%;
-    padding-top: 5px;
-}
-
-.info {
-    font-weight: 300;
-    color: white;
-    /*text-shadow: 1 1px black;*/
-    min-width: 67%;
-    margin-left: 15px;
-}
-
 
 #content {
     justify-self: start;
@@ -163,6 +93,66 @@ html {
     padding: 0;
 }
 
+
+
+/*FORECAST WEATHER*/
+.weatherCard {
+    min-height: 20%;
+    font-size: 16px;
+    border-radius: 0 30px 30px 0;
+    border-width: 0;
+    border-right:1px solid var(--blue);
+    background-size: cover;
+    transition: all ease-in 0.3s;
+    margin: 20px 0;
+    width: 100%;
+    position: relative;
+}
+
+.weatherCard:hover {
+    min-height: 20%;
+    margin: 20px 0;
+    transition: all ease 0.3s;
+    transform: translateX(1%) scale(1.05);
+}
+
+#render-data {
+    min-height: 100%;
+    max-width: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 0 30px 30px 0;
+    padding: 10px;
+    gap: 0;
+}
+
+.date {
+    font-size: 24px;
+    color: var(--blue);
+    position: absolute;
+    line-height: 0;
+    top: -10px;
+    left: 15px;
+}
+
+.info {
+    color: white;
+    /*text-shadow: 1 1px black;*/
+    min-width: 67%;
+    margin-left: 15px;
+}
+
+.headWeather {
+    min-width: 15%;
+    padding-top: 5px;
+}
+
+.temp {
+    line-height: 1;
+    font-size: 30px;
+    color: white;
+    text-shadow: 1px 1px 4px lightgray;
+}
+
 .bg-image {
     position: absolute;
 }
@@ -172,10 +162,9 @@ html {
     font-weight: bold;
 }
 
-#info {
-    z-index: 99;
+.light {
+    font-weight: 300;
 }
-
 
 /*CURRENT WEATHER*/
 #currCast {
@@ -198,7 +187,7 @@ html {
 }
 
 .currCard {
-    min-height: 20%;
+    min-height: 12vh;
     font-size: 16px;
     border-radius: 30px;
     border-width: 0;
@@ -216,12 +205,17 @@ html {
     font-size: 26px;
 }
 
+#currCast span.temp {
+    align-self: end;
+    font-size: 32px;
+}
+
 #curr-render-data {
     min-height: 100%;
     max-width: 100%;
     background: rgba(0, 0, 0, 0.8);
     border-radius: 30px;
-    padding: 10px 0;
+    padding: 10px 20px;
     gap: 0;
 }
 
