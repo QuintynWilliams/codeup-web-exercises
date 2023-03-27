@@ -1,16 +1,9 @@
-html {
-    overflow: hidden;
-    position: relative;
+/*FONT && TEXT SELECTORS*/
+:root {
+    --black: rgba(0, 0, 0, 0.45);
+    --blue: #2e98e3;
+    --border-color: rgba(255,255,255,0.4)
 }
-
-* {
-    font-family: "Helvetica Neue", sans-serif;
-}
-
-#title {
-    font-size: 20px;
-}
-
 
 
 /*JS SELECTORS*/
@@ -23,23 +16,43 @@ html {
     padding: 0;
 }
 
+#currCity-label {
+    color: var(--blue);
+    text-shadow: 0 2px 5px black;
+    text-align: left;
+    padding-left: 15px;
+}
+
 #currCity {
+    padding: 10px 15px;
     color: white;
-    font-size: 1rem;
-    text-shadow: 2px 2px 5px black;
+    font-weight: 300;
     min-height: 5%;
-    overflow: scroll;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
 }
 
-
-/*FONT && TEXT SELECTORS*/
-:root {
-    --black: rgba(0, 0, 0, 0.45);
-    --blue: #2e98e3;
-    --border-color: rgba(255,255,255,0.4)
-}
 
 /*Body Selectors*/
+html {
+    overflow: hidden;
+    position: relative;
+}
+
+* {
+    font-family: "Helvetica Neue", sans-serif;
+}
+
+h1 {
+    font-size: 40px;
+    text-shadow: 0 2px 5px black;
+    border-bottom: 1px solid var(--blue);
+    border-radius: 0 0 0 30px;
+    padding-bottom: 15px;
+}
+
+
 .user-action {
     pointer-events: auto;
 }
@@ -89,6 +102,11 @@ html {
     min-height: 35px;
 }
 
+#searchWeather:hover {
+    border-color: var(--blue);
+    box-shadow: 1px 1px 10px var(--blue);
+}
+
 #body-wrap {
     padding: 0;
 }
@@ -119,7 +137,7 @@ html {
 #render-data {
     min-height: 100%;
     max-width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.50);
     border-radius: 0 30px 30px 0;
     padding: 10px;
     gap: 0;
@@ -213,7 +231,7 @@ html {
 #curr-render-data {
     min-height: 100%;
     max-width: 100%;
-    background: rgba(0, 0, 0, 0.8);
+    background: rgba(0, 0, 0, 0.5);
     border-radius: 30px;
     padding: 10px 20px;
     gap: 0;

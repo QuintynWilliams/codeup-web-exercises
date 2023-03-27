@@ -25,10 +25,11 @@
                     <h1>Weather Map</h1>
                 </div>
 <!--        User Query   -->
-                    <label for="searchWeather" class="user-action">
-                        <input type="text" name="setMarker" id="searchWeather" placeholder="Search">
-                    </label>
+                <label for="searchWeather" class="user-action">
+                    <input type="text" name="setMarker" id="searchWeather" placeholder="Search">
+                </label>
 
+                <p id="currCity-label">Currently showing weather for:</p>
                 <span id="currCity"></span>
 
 <!--        Forecast Weather Render   -->
@@ -47,12 +48,14 @@
 
 <!--    Enabling jQuery Use    -->
 <script src="js/jquery.js"></script>
-<!-- Mapbox Geocoder UTILS -->
+
+<!--    Mapbox Geocoder UTILS    -->
 <script src="js/mapbox-geocoder-utils.js"></script>
+
 <!--    Mapbox UTILS    -->
 <script src="js/weather_map_utils.js"></script>
-<!-- Mapbox API  -->
 
+<!--    Mapbox API    -->
 <script>
 
     mapboxgl.accessToken = MAPBOX_API_TOKEN;

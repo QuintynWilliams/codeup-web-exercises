@@ -30,9 +30,14 @@ let fiveCast = [];
         });
         const address = document.getElementById("searchWeather").value.toUpperCase();
         if (e.key === 'Enter') {
-            $currCity.html(address);
             fiveCast = [];
             currCast = [];
+            geocode(address, MAPBOX_API_TOKEN).then(geoPlace => {
+                let placeObj = {lat: geoPlace[1], lng: geoPlace[0]}
+                reverseGeocode(placeObj, MAPBOX_API_TOKEN).then( geoName => {
+                    $currCity.html(geoName);
+                })
+            })
             currWeather(address);
             getWeather(address);
             getMapData(address);
@@ -40,6 +45,7 @@ let fiveCast = [];
     })
 
     map.on('dblclick', (e) => {
+        e.preventDefault();
         let markers = document.querySelectorAll(".mapboxgl-marker")
         markers.forEach(thing => {
             thing.remove()
@@ -73,6 +79,7 @@ let fiveCast = [];
                 })
                     .setLngLat(coords)
                     .addTo(map);
+                map.setCenter(coords);
                 const newPopup = new mapboxgl.Popup()
                     .setHTML(`<p class="pin">${namedCity}</p>`);
                 newMarker.setPopup(newPopup);
@@ -88,7 +95,7 @@ let fiveCast = [];
 
     if ((100 - cover) >= 70) {
         imgCloud += 'images/weather_map_imgs/sunny.svg';
-    } else if ((100 - cover) < 70) {
+    } else if ((100 - cover) < 70 && (100 - cover) > 30) {
         imgCloud += 'images/weather_map_imgs/part-cloudy.svg';
     } else if ((100 - cover) < 30) {
         imgCloud += 'images/weather_map_imgs/cloudy.svg';
@@ -103,7 +110,7 @@ let fiveCast = [];
 
     if ((100 - cover) >= 70) {
         bgImage += 'images/weather_map_imgs/sunny-bg.jpeg';
-    } else if ((100 - cover) < 70) {
+    } else if ((100 - cover) < 70 && (100 - cover) > 30) {
         bgImage += 'images/weather_map_imgs/part-cloudy-bg.jpeg';
     } else if ((100 - cover) < 30) {
         bgImage += 'images/weather_map_imgs/cloudy-bg.webp';
@@ -116,16 +123,15 @@ let fiveCast = [];
 // HTML STRING RENDER
 //  Render current weather for #currCast
     const renderCurrHTML = (currData) => {
-    console.log(currData)
     let html = `<div class="currCard column justify-center align-center" style="background-image: url('/codeup-web-exercises/${assignBack(currData.clouds.all)}')">`;
-        html +=    ` <span class="date">Current on: ${namedDayFromDay(currData.dt)}, ${formatTime(currData.dt)}</span>`;
+        html +=    ` <span class="date"> Weather for Today: ${namedDayFromDay(currData.dt)}, ${formatTime(currData.dt)}</span>`;
         html +=    ` <div id="curr-render-data" class="row align-center">`;
         html +=       ` <p class="column light"><span class="bold">Description:</span> ${currData.weather[0].description}`;
         html +=       ` <p class="column light"><span class="bold">Humidity:</span> ${currData.main.humidity} %`;
         html +=       ` <p class="column light"><span class="bold">Wind:</span> ${currData.wind.speed} mph ${windCardinalDirection(currData.wind.deg)}`;
         html +=       ` <p class="column light"><span class="bold">Pressure:</span> ${currData.main.pressure} hPa`;
         html +=       ` <div class="column weather-icon align-center">`;
-        html +=           ` <img src="images/weather_map_imgs/sunny.svg" alt="poiadhf" height="60px" width="60px">`;
+        html +=           ` <img src="${assignCover(currData.clouds.all)}" alt="poiadhf" height="60px" width="60px">`;
         html +=       `</div>`;
         html +=       ` <span class="column temp">${ parseInt(currData.main.temp)}°F</span>`;
         html +=   `</div>`;
@@ -161,7 +167,6 @@ let fiveCast = [];
     function renderWeather(dataSet) {
     let html = '';
         for(let i = 0; i < dataSet.length; i++) {
-            console.log(dataSet)
             html += renderWeatherHTML(dataSet[i]);
         }
     return html;
@@ -223,13 +228,13 @@ const getMapData = (mapCity) => {
         })
             .setLngLat(coords)
             .addTo(map);
-        map.setCenter(coords);
+//      Offset visual center to open viewspace
+        let centerOff = [(coords[0]-0.2), (coords[1]+0.05)]
+        map.setCenter(centerOff);
         const newPopup = new mapboxgl.Popup()
             .setHTML(`<p class="pin">${mapCity}</p>`);
         newMarker.setPopup(newPopup);
     })
 }
-
-
 
 
