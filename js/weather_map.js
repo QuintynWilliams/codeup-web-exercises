@@ -95,7 +95,7 @@ let fiveCast = [];
 
     if ((100 - cover) >= 70) {
         imgCloud += 'images/weather_map_imgs/sunny.svg';
-    } else if ((100 - cover) < 70 && (100 - cover) > 30) {
+    } else if ((100 - cover) < 70 && (100 - cover) >= 30) {
         imgCloud += 'images/weather_map_imgs/part-cloudy.svg';
     } else if ((100 - cover) < 30) {
         imgCloud += 'images/weather_map_imgs/cloudy.svg';
@@ -110,7 +110,7 @@ let fiveCast = [];
 
     if ((100 - cover) >= 70) {
         bgImage += 'images/weather_map_imgs/sunny-bg.jpeg';
-    } else if ((100 - cover) < 70 && (100 - cover) > 30) {
+    } else if ((100 - cover) < 70 && (100 - cover) >= 30) {
         bgImage += 'images/weather_map_imgs/part-cloudy-bg.jpeg';
     } else if ((100 - cover) < 30) {
         bgImage += 'images/weather_map_imgs/cloudy-bg.webp';
@@ -131,7 +131,7 @@ let fiveCast = [];
         html +=       ` <p class="column light"><span class="bold">Wind:</span> ${currData.wind.speed} mph ${windCardinalDirection(currData.wind.deg)}`;
         html +=       ` <p class="column light"><span class="bold">Pressure:</span> ${currData.main.pressure} hPa`;
         html +=       ` <div class="column weather-icon align-center">`;
-        html +=           ` <img src="${assignCover(currData.clouds.all)}" alt="poiadhf" height="60px" width="60px">`;
+        html +=           ` <img src="${assignCover(currData.clouds.all)}" alt="weather-icon" height="60px" width="60px">`;
         html +=       `</div>`;
         html +=       ` <span class="column temp">${ parseInt(currData.main.temp)}°F</span>`;
         html +=   `</div>`;
@@ -152,7 +152,7 @@ let fiveCast = [];
         html +=         `</div>`;
         html +=         `<div class="headWeather column justify-space-between align-center">`;
         html +=             `<div class="weather-icon">`;
-        html +=                 `<img src="${assignCover(wetData.clouds.all)}" alt="poiadhf" height="60px" width="60px">`;
+        html +=                 `<img src="${assignCover(wetData.clouds.all)}" alt="weather-icon" height="60px" width="60px">`;
         html +=             `</div>`;
         html +=         `<span class="temp">${ parseInt(wetData.main.temp)}°F</span>`;
         html +=         `</div>`;
