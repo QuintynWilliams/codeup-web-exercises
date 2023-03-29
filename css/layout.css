@@ -32,6 +32,10 @@
     justify-content: center;
 }
 
+.wrap {
+    flex-wrap: wrap;
+}
+
 /*
         The "row" is a container element that horizontally separates its
         children, which are usually columns. It also performs a secondary role
@@ -80,6 +84,7 @@
 .row.no-gap {
     gap: unset;
 }
+
 
 /*
         The "column" is a container element that vertically separates its
