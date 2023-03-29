@@ -1,10 +1,16 @@
 // include in you JS to USE || CMD + click to go there
-import {getGithubUsers} from "./promises-github.js";
+import {getGithubUsers, renderGithubUser} from "./promises-github.js";
 
-(async () => {
-//     SEPERATION OF CONCERNS
-//     put GET in own funciton to enable later use
-//     write all funcitons with GET data in its own JS file
+(async ()=>{
+    // Get users
     let users = await getGithubUsers();
-    console.log(users)
+    console.log(users);
+    // Render the users
+    const usersGrid = document.querySelector('#userGrid');
+    users.forEach(function(user){
+        renderGithubUser(user, usersGrid);
+    });
+
+
+
 })();
