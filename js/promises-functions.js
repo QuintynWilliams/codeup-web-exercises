@@ -23,8 +23,14 @@ export const getLastCommit = async (userName) => {
             }
         });
         let data = await response.json();
-        console.log(data)
-        return data
+//      .find returns the first only  vs . filter returns all
+        let commit = data.find(n => {
+            return n.type === 'PushEvent';
+        })
+        if (commit !== undefined) {
+            return `${commit.actor.login}: ${commit.created_at}`
+        }
+
     } catch (error) {
         console.log(error);
     }

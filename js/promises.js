@@ -4,9 +4,7 @@ import {getUserData, getLastCommit, wait} from "./promises-functions.js";
 
     let users = await getUserData();
 
-    let commit = users.forEach(user => {
-        getLastCommit(user.login);
-    })
+    let commit = await getLastCommit(users.login)
 
     const request = wait(3000);
     request.then(message => console.log('Return Time:', message))
