@@ -1,0 +1,36 @@
+{
+  "favorites": [
+    {
+      "id": 1,
+      "title": "The Sawshank Redemption",
+      "genre": "Drama",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "title": "The Godfather",
+      "genre": "Crime",
+      "rating": 5
+    },
+    {
+      "title": "The Lord of the Rings: The Fellowship of the Ring",
+      "genre": "Fantasy",
+      "rating": 3,
+      "id": 3
+    }
+  ],
+  "movies": [
+    {
+      "id": 1,
+      "title": "The Sawshank Redemption",
+      "genre": "Drama",
+      "rating": 5
+    },
+    {
+      "id": 2,
+      "title": "The Godfather",
+      "genre": "Crime",
+      "rating": 5
+    }
+  ]
+}

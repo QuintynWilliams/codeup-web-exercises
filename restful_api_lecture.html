@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>RESTful APIs</title>
+    <link rel="stylesheet" href="css/resets.css">
+    <link rel="stylesheet" href="css/layout.css">
+</head>
+<body>
+
+<div class="page-wrapper">
+    <div class="container grow justify-center">
+        <div class="row justify-center">
+            <div class="column shrink">
+                <label for="title"> Title
+                    <input id="title" type="text">
+                </label>
+                <label for="genre">  Genre
+                    <select id="genre">
+                        <option value="crime">Crime</option>
+                        <option value="drama">Drama</option>
+                        <option value="comedy">Comedy</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="SciFi">SciFi</option>
+                        <option value="horror">Horror</option>
+                    </select>
+                </label>
+                <label for="rating"> Rating
+                    <input id="rating" type="number" min="1" max="5">
+                </label>
+                <button>IDK</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" src="js/restful_api_lecture.js"></script>
+</body>
+</html>
