@@ -8,12 +8,12 @@ export const getGithubUsers = async () => {
         console.log(error);
     }
     // the .then syntax (older)
-    return fetch('https://api.github.com/users')
-        .then(response => response.json())
-        .then(data => data)
-        .catch(error=>{
-            console.log(error);
-        });
+    // return fetch('https://api.github.com/users')
+    //     .then(response => response.json())
+    //     .then(data => data)
+    //     .catch(error=>{
+    //         console.log(error);
+    //     });
 }
 
 export const renderGithubUser = (user, parent) => {
