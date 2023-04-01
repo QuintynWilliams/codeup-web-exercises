@@ -1,0 +1,224 @@
+/*JS CLASS SELECTORS*/
+#c {
+    position: absolute;
+    min-height: 100vh;
+    min-width: 100vw;
+    overflow: hidden;
+    z-index: -1;
+}
+
+.hide {
+    display: none;
+}
+
+
+/*ELEMENT SELECTORS*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    position: relative;
+    overflow: hidden;
+    font-family: Helvetica, sans-serif;
+    color: white;
+    background: black;
+}
+
+header {
+    display: flex;
+    flex: 1 0 0;
+    border-bottom: 1px solid white;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+
+/*LOAD SCREEN*/
+#intro {
+    text-align: center;
+    font-size: 40px;
+    color: white;
+}
+
+#load-logo {
+    font-size: 24px;
+    z-index: 1;
+}
+
+.loader {
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+    animation: animate 1.2s linear infinite;
+    z-index: 0;
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader span {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: linear-gradient(#f07e6e, #84cdfa, #5ad1cd);
+}
+
+.loader span:nth-child(1) {
+    filter: blur(5px);
+}
+
+.loader span:nth-child(2) {
+    filter: blur(10px);
+}
+
+.loader span:nth-child(3) {
+    filter: blur(25px);
+}
+
+.loader span:nth-child(4) {
+    filter: blur(50px);
+}
+
+.loader:after {
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+    background: #000000;
+    border: solid white 5px;
+    border-radius: 50%;
+}
+
+
+/*CLASS and ID*/
+.container {
+    background: rgba(0, 0, 0, 0.6);
+}
+
+.grid-template {
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 20px;
+    margin: 10px;
+    height: 40vh;
+    overflow-x: auto;
+}
+
+#stamp-logo {
+    align-self: start;
+    justify-self: left;
+}
+
+#favGrid {
+    width: 40vw;
+    padding: 30px;
+}
+
+#favGrid .img-wrapper img{
+    max-width: 170px;
+}
+
+#favGrid .movie-card {
+    font-size: 10px;
+    max-width: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: center;
+}
+
+#userGrid {
+
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.img-wrapper img{
+    all: unset;
+    max-width: 200px;
+}
+
+.movie-card {
+    max-width: 200px;
+    background: black;
+    gap: 5px;
+    font-size: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-content: center;
+    position: relative;
+}
+
+.film-info {
+    font-size: 12px;
+    position: absolute;
+    min-width: 100%;
+    padding: 0 0 5px 5px;
+    background: linear-gradient( to top, black, rgba(0, 0, 0, 0.85) 60%);
+    border-radius: 5px 5px 0 0;
+    box-shadow: 0 -2px 8px black;
+    bottom: 0;
+    left: 0;
+}
+
+.rating {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+
+/*RATING STARS*/
+.rate {
+    float: left;
+    height: 46px;
+    padding: 0 10px;
+}
+.rate:not(:checked) > input {
+    position:absolute;
+    top:-9999px;
+}
+.rate:not(:checked) > label {
+    float:right;
+    width:1em;
+    overflow:hidden;
+    white-space:nowrap;
+    cursor:pointer;
+    font-size:30px;
+    color:#ccc;
+}
+.rate:not(:checked) > label:before {
+    content: '★';
+}
+.rate > input:checked ~ label {
+    color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+    color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+    color: #c59b08;
+}
