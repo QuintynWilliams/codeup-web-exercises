@@ -110,7 +110,7 @@ header {
 }
 
 .grid-template {
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.75);
     border-radius: 20px;
     margin: 10px;
     height: 40vh;
@@ -128,20 +128,45 @@ header {
 }
 
 #favGrid .img-wrapper img{
-    max-width: 170px;
+    max-width: 200px;
 }
 
 #favGrid .movie-card {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    margin-right: 50px;
     font-size: 10px;
-    max-width: 170px;
+    max-width: 200px;
     display: flex;
     flex-direction: column;
     justify-content: start;
     align-content: center;
 }
 
+#favGrid .editor {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    top:-1px;
+    left: 200px;
+    border: 1px solid white;
+    border-radius: 0 5px 5px 0;
+    height: 298px;
+    width: 300px;
+}
+
 #userGrid {
 
+}
+
+#grade-button {
+    all: unset;
+    text-align: center;
+    width: 100px;
+    border-radius: 5px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px black;
+    background: #5ed5de;
 }
 
 .img-wrapper {
@@ -156,6 +181,8 @@ header {
 }
 
 .movie-card {
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
     max-width: 200px;
     background: black;
     gap: 5px;
@@ -167,8 +194,20 @@ header {
     position: relative;
 }
 
+.editor {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    z-index: 1;
+    top:-1px;
+    left: 200px;
+    border: 1px solid white;
+    border-radius: 0 5px 5px 0;
+    height: 302px;
+    width: 500px;
+}
+
 .film-info {
-    font-size: 12px;
+    font-size: 10px;
     position: absolute;
     min-width: 100%;
     padding: 0 0 5px 5px;
@@ -179,24 +218,124 @@ header {
     left: 0;
 }
 
-.rating {
+.film-rating {
+    color: #ffff33;
+}
+
+.genres {
+    font-size: 10px;
+    color: lightgrey;
+}
+
+.message {
+    background: linear-gradient( to bottom, black, rgba(0, 0, 0, 0.85) 60%);
+    font-size: 12px;
     position: absolute;
     top: 0;
-    left: 0;
+    padding: 40px 5px 5px 5px;
+    border-radius: 0 0 5px 5px;
+    height: 150px;
+    overflow: auto;
 }
 
 
+.button-64 {
+    align-items: center;
+    border: 0;
+    box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    display: flex;
+    font-family: Phantomsans, sans-serif;
+    justify-content: center;
+    line-height: 1em;
+    height: 20px;
+    padding: 3px;
+    text-decoration: none;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    cursor: pointer;
+    position: absolute;
+}
+
+.button-64:active,
+.button-64:hover {
+    outline: 0;
+}
+
+.button-64:hover span {
+    background: none;
+}
+
+.rmv-button {
+    width: 25px;
+    font-size: 12px;
+    line-height: 0;
+    text-align: center;
+    background: black;
+    top: 0;
+    left: 0;
+    border-right: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 0 0 10px 0;
+    padding-left: 2px;
+    padding-top: 4px;
+    font-weight: bold;
+}
+
+.edt-button {
+    font-size: 10px;
+    width: 35px;
+    line-height: 0;
+    text-align: center;
+    background: black;
+    top: 0;
+    right: 0;
+    border-left: 1px solid white;
+    border-bottom: 1px solid white;
+    border-radius: 0 0 0 10px;
+    padding-right: 2px;
+    padding-top: 2px;
+    font-weight: bold;
+}
+
+.rmv-button:hover {
+    border: 0;
+    color: white;
+    background: #FF406DFF;
+    box-shadow: 2px 2px 8px #FF406DFF;
+}
+
+.edt-button:hover {
+    border: 0;
+    color: white;
+    background-image: linear-gradient(225deg, #1cbffa, #1cc4fa 30%, #00eb99);
+    box-shadow: -2px 2px 8px rgba(94, 213, 222, 0.67);
+}
+
+
+/*@media (min-width: 768px) {*/
+/*    .button-64 {*/
+/*        font-size: 24px;*/
+/*        min-width: px;*/
+/*    }*/
+/*}*/
+
+
+
 /*RATING STARS*/
-.rate {
+.rating {
     float: left;
     height: 46px;
     padding: 0 10px;
 }
-.rate:not(:checked) > input {
+.rating:not(:checked) > input {
     position:absolute;
     top:-9999px;
 }
-.rate:not(:checked) > label {
+.rating:not(:checked) > label {
     float:right;
     width:1em;
     overflow:hidden;
@@ -205,20 +344,24 @@ header {
     font-size:30px;
     color:#ccc;
 }
-.rate:not(:checked) > label:before {
-    content: '★';
+.rating:not(:checked) > label:before {
+    content: '★ ';
 }
-.rate > input:checked ~ label {
-    color: #ffc700;
+.rating > input:checked ~ label {
+    color: red;
+/*    ffc700*/
 }
-.rate:not(:checked) > label:hover,
-.rate:not(:checked) > label:hover ~ label {
-    color: #deb217;
+.rating:not(:checked) > label:hover,
+.rating:not(:checked) > label:hover ~ label {
+    color: blue;
+/*    deb217*/
 }
-.rate > input:checked + label:hover,
-.rate > input:checked + label:hover ~ label,
-.rate > input:checked ~ label:hover,
-.rate > input:checked ~ label:hover ~ label,
-.rate > label:hover ~ input:checked ~ label {
-    color: #c59b08;
+.rating > input:checked + label:hover,
+.rating > input:checked + label:hover ~ label,
+.rating > input:checked ~ label:hover,
+.rating > input:checked ~ label:hover ~ label,
+.rating > label:hover ~ input:checked ~ label {
+    color: green;
+/*    c59b08*/
 }
+

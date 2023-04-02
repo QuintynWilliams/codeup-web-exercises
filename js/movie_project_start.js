@@ -1,10 +1,19 @@
-import {bgRender, getFavorite, getMovies, renderMovieCard, renderFavCard, setFavorite} from "./movie_project_bg.js"
-
+import {
+    bgRender,
+    editMovie,
+    getFavorite,
+    getMovies,
+    renderMovieCard,
+    renderFavCard,
+    setFavorite,
+    setMovies
+} from "./movie_project_bg.js"
 
 bgRender();
 
 
-(async() => {
+
+(() => {
 
     let intro = document.getElementById('intro');
     let content = document.getElementById('content');
@@ -14,19 +23,21 @@ bgRender();
         let controlCenter = document.querySelectorAll(".dg");
         controlCenter.forEach(n => n.remove());
 
+        // Get Favorites
         let jsonFav = await getFavorite();
         console.log(jsonFav);
-        // Render the movies
+
+        // Get Movies
+        let jsonMovies = await getMovies();
+        console.log(jsonMovies);
+
+        // Render Favorites
         const favGrid = document.querySelector('#favGrid');
         jsonFav.forEach(function(jsonFav){
             renderFavCard(jsonFav, favGrid);
         });
 
-
-        // Get movies
-        let jsonMovies = await getMovies();
-        console.log(jsonMovies);
-        // Render the movies
+        // Render Movies
         const moviesGrid = document.querySelector('#moviesGrid');
         jsonMovies.forEach(function(jsonMovies){
             renderMovieCard(jsonMovies, moviesGrid);
@@ -35,36 +46,56 @@ bgRender();
         content.classList.remove('hide')
     })
 
+
 //  ADD NEW MOVIE
-/*
-    document.querySelector('button').addEventListener('click', async function () {
+    document.querySelector('#grade-button').addEventListener('click', async function () {
 
         const title = document.querySelector('#title').value;
-        // console.log(title)
-        const genre = document.querySelector('#genre').value;
-        // console.log(genre)
-        const rating = parseFloat(document.querySelector('#rating').value);
-        // console.log(rating)
+
+        const genres = document.querySelector('#genre').value;
+
+        const ratings = document.getElementsByName('rate');
+        console.log(ratings)
+
+        const poster = 'https://via.placeholder.com/200x300'
+
+        const plot = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid animi architecto earum eius eos esse iste porro ratione rem veniam!"
+
+        for(let i = 0; i < ratings.length; i++) {
+            if(ratings[i].checked)
+                var rating = parseFloat(ratings[i].value);
+        }
 
         // Documentaion will inform of the neccessary fields to a data send request
         let movieData = {
             title,
-            genre,
-            rating
+            genres,
+            rating,
+            poster,
+            plot
         }
 
-        let result =  await setFavorite(movieData)
+        // if (rating === 5) {
+        //     let result =  await setFavorite(movieData)
+        //     let jsonFav = await getFavorite();
+        //     console.log(jsonFav);
+        //     // Render the movies
+        //     const favGrid = document.querySelector('#favGrid');
+        //     jsonFav.forEach(function(jsonFav){
+        //         renderMovieCard(jsonFav, favGrid);
+        // });
+        // } else {
+        //     let result =  await setMovies(movieData)
+        //     let jsonMovies = await getMovies();
+        //     console.log(jsonMovies);
+        //     // Render the movies
+        //     const moviesGrid = document.querySelector('#moviesGrid');
+        //     jsonMovies.forEach(function(jsonMovies){
+        //         renderMovieCard(jsonMovies, moviesGrid);
+        // });
+        // }
+
     })
-*/
 
 })();
 
-let cards = document.getElementsByClassName("movie-card");
-
-Array.prototype.forEach.call(cards, function(item) {
-    console.log('item')
-    item.addEventListener('click', () => {
-        console.log('Hover')
-        // movieCard.classList('message').remove()
-    })
-});

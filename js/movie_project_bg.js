@@ -2,6 +2,7 @@ import dat from "https://cdn.skypack.dev/dat.gui@0.7.7";
 
 "use strict";
 
+// RENDER UNIQUE BACKGROUND ON LOAD
 export function bgRender () {
 
     const gui = new dat.GUI();
@@ -205,7 +206,7 @@ export function bgRender () {
 
 }
 
-// FAVORITES
+// GET MOVIES
 export const getFavorite = async () => {
         try {
         let url = 'http://localhost:3000/favorites';
@@ -217,6 +218,18 @@ export const getFavorite = async () => {
     }
 }
 
+export const getMovies = async () => {
+        try {
+        let url = 'http://localhost:3000/movies';
+        let response = await fetch(url);
+        let data = await response.json();
+        return data
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+// SET MOVIES
 export const setFavorite = async (movie) => {
     try {
         let url = 'http://localhost:3000/favorites';
@@ -236,13 +249,17 @@ export const setFavorite = async (movie) => {
         console.log(error)
     }
 }
-
-
-// MOVIES
-export const getMovies = async () => {
-        try {
+export const setMovies = async (movie) => {
+    try {
         let url = 'http://localhost:3000/movies';
-        let response = await fetch(url);
+        let options = {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movie),
+        }
+        let response = await fetch(url, options);
         let data = await response.json();
         return data
     } catch(error) {
@@ -250,65 +267,301 @@ export const getMovies = async () => {
     }
 }
 
-// export const setMovies = async (movie) => {
-//         try {
-//         let url = 'http://localhost:3000/favorites';
-//         let options = {
-//             // GET IS DEFAULT, No key required
-//             method: 'POST',
-//             headers: {
-//                 'Content-Type': 'application/json'
-//             },
-//             body: JSON.stringify(movie),
-//
-//         }
-//         let response = await fetch(url, options);
-//         let data = await response.json();
-//         return data
-//     } catch(error) {
-//         console.log(error)
-//     }
-// }
+// REMOVE MOVIE
+export const removeMovie = async (movieID) => {
+    try {
+        let url = `http://localhost:3000/movies/${movieID}`;
+        let options = {
+            method: 'DELETE'
+        }
+        let response = await fetch(url, options);
+        console.log(`MOVIE DELETE: ${response}`);
+        // let data = await response.json();
+        // return data
+    } catch(error) {
+        console.log(error)
+    }
+}
+
+// EDIT MOVIE
+export const editMovie = async (movie) => {
+    try {
+        let url = `http://localhost:3000/movies/${movie.id}`;
+        let options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(movie),
+        }
+        let response = await fetch(url, options);
+        let data = await response.json();
+        return data
+    } catch(error) {
+        console.log(error)
+    }
+}
 
 
-export const renderFavCard = (film, parent) => {
+// RENDER HTML
+export const renderMovieCard = (film, parent) => {
+    const star = ' ★ '
     const element = document.createElement('div');
     element.classList.add('movie-card');
     element.innerHTML = `
+        <div class="editor hide">
+            <label for="edt-title"> 
+            <input id="edt-title-${film.id}" type="text" placeholder="${film.title}">
+            </label>
+            <label for="edt-genre">  Genre
+            <select id="edt-genre-${film.id}">
+                <option value="Comedy"> Comedy </option>
+                <option value="Fantasy"> Fantasy </option>
+                <option value="Crime"> Crime </option>
+                <option value="Drama"> Drama </option>
+                <option value="Music"> Music </option>
+                <option value="Adventure"> Adventure </option>
+                <option value="History"> History </option>
+                <option value="Thriller"> Thriller </option>
+                <option value="Animation"> Animation </option>
+                <option value="Family"> Family </option>
+                <option value="Mystery"> Mystery </option>
+                <option value="Biography"> Biography </option>
+                <option value="Action"> Action </option>
+                <option value="Romance"> Romance </option>
+                <option value="Sci-Fi"> Sci-Fi </option>
+                <option value="War"> War </option>
+                <option value="Western"> Western </option>
+                <option value="Horror"> Horror </option>
+                <option value="Musical"> Musical </option>
+            </select>
+            </label>
+            <div class="rating" id="edt-rating-${film.id}">
+                <input type="radio" id="star5-${film.id}" name="edt-rate-${film.id}" value="5" />
+                <label for="star5-${film.id}">5</label>
+                <input type="radio" id="star4-${film.id}" name="edt-rate-${film.id}" value="4" />
+                <label for="star4-${film.id}">4</label>
+                <input type="radio" id="star3-${film.id}" name="edt-rate-${film.id}" value="3" />
+                <label for="star3-${film.id}">3</label>
+                <input type="radio" id="star2-${film.id}" name="edt-rate-${film.id}" value="2" />
+                <label for="star2-${film.id}">2</label>
+                <input type="radio" id="star1-${film.id}" name="edt-rate-${film.id}" value="1" />
+                <label for="star1-${film.id}"></label>
+            </div>
+            <label for="edt-plot">Plot</label>
+            <input id="edt-plot-${film.id}" type="text">
+            <label for="edt-poster">Poster</label>
+            <input id="edt-poster-${film.id}" type="url">
+            
+            <button class="edt-submit-button">EDIT</button>
+        </div>
         <div class="img-wrapper">
-            <img class="film-poster" src="${film.poster}" alt="movie-image">
-            <!--<div class="rating">${film.rating}</div>-->
+            <img class="film-poster" src="${film.poster}" alt="movie-image">          
         </div>
         <div class="film-info">
+            <div class="film-rating">${star.repeat(film.rating)}</div>
             <h2 class="film-title">${film.title}</h2>
             <p class="genres">${film.genres}</p>
         </div>
-        <p>${film.plot}</p>
-<!--        <button>Remove</button>-->
+        <p class="message hide"> Film Plot: ${film.plot}</p>
+        <button class="rmv-button button-64" role="button">X</button>
+        <button class="edt-button button-64" role="button">EDIT</button>
     `;
-    // element.querySelector('button').addEventListener('click', function(){
-    //     element.remove();
-    // });
+
+    element.querySelector('.img-wrapper').addEventListener('click', function(){
+        element.querySelector('.message').classList.toggle('hide');
+    });
+    element.querySelector('.rmv-button').addEventListener('click', function(){
+        element.remove();
+        removeMovie(film.id);
+    });
+
+    //  EDIT MOVIE
+    element.querySelector('.edt-button').addEventListener('click', async function () {
+        element.querySelector('.editor').classList.toggle('hide');
+        element.querySelector('.edt-submit-button').addEventListener('click', async function() {
+
+            const titleEDT = element.querySelector(`#edt-title-${film.id}`).value;
+            console.log(titleEDT)
+
+            const genresEDT = element.querySelector(`#edt-genre-${film.id}`).value;
+            console.log(genresEDT)
+
+            const ratingsEDT = document.getElementsByName(`edt-rate-${film.id}`);
+            console.log(ratingsEDT)
+
+            const posterEDT = element.querySelector(`#edt-poster-${film.id}`).value;
+            console.log(posterEDT)
+
+            const plotEDT = element.querySelector(`#edt-plot-${film.id}`).value;
+            console.log(plotEDT)
+
+            for(let i = 0; i < ratingsEDT.length; i++) {
+                if(ratingsEDT[i].checked)
+                    var ratingEDT = parseFloat(ratingsEDT[i].value);
+            }
+
+            // Documentaion will inform of the neccessary fields to a data send request
+            let movieData = {
+                id: film.id,
+                title: titleEDT,
+                genres: genresEDT,
+                rating: ratingEDT,
+                poster: posterEDT,
+                plot: plotEDT
+            }
+            console.log(movieData)
+
+            // if (rating === 5) {
+            //     let result =  await editMovie(movieData)
+            //     let jsonFav = await getFavorite();
+            //     console.log(jsonFav);
+            //     // Render the movies
+            //     const favGrid = document.querySelector('#favGrid');
+            //     jsonFav.forEach(function(jsonFav){
+            //         renderMovieCard(jsonFav, favGrid);
+            //     });
+            // } else {
+            //     let result =  await editMovie(movieData)
+            //     let jsonMovies = await getMovies();
+            //     console.log(jsonMovies);
+            //     // Render the movies
+            //     const moviesGrid = document.querySelector('#moviesGrid');
+            //     jsonMovies.forEach(function(jsonMovies){
+            //         renderMovieCard(jsonMovies, moviesGrid);
+            //     });
+            // }
+        })
+    })
+
     parent.appendChild(element);
 }
 
-export const renderMovieCard = (film, parent) => {
+export const renderFavCard = (film, parent) => {
+    const star = ' ★ '
     const element = document.createElement('div');
     element.classList.add('movie-card');
     element.innerHTML = `
+        <div class="editor">
+            <label for="edt-title"> 
+            <input id="edt-title-${film.id}" type="text" placeholder="${film.title}">
+            </label>
+            <label for="edt-genre">  Genre
+            <select id="edt-genre-${film.id}">
+                <option value="Comedy"> Comedy </option>
+                <option value="Fantasy"> Fantasy </option>
+                <option value="Crime"> Crime </option>
+                <option value="Drama"> Drama </option>
+                <option value="Music"> Music </option>
+                <option value="Adventure"> Adventure </option>
+                <option value="History"> History </option>
+                <option value="Thriller"> Thriller </option>
+                <option value="Animation"> Animation </option>
+                <option value="Family"> Family </option>
+                <option value="Mystery"> Mystery </option>
+                <option value="Biography"> Biography </option>
+                <option value="Action"> Action </option>
+                <option value="Romance"> Romance </option>
+                <option value="Sci-Fi"> Sci-Fi </option>
+                <option value="War"> War </option>
+                <option value="Western"> Western </option>
+                <option value="Horror"> Horror </option>
+                <option value="Musical"> Musical </option>
+            </select>
+            </label>
+            <div class="rating" id="edt-fav-rating-${film.id}">
+                <input type="radio" id="star5-fav-${film.id}" name="edt-fav-rate-${film.id}" value="5" />
+                <label for="star5-fav-${film.id}">5</label>
+                <input type="radio" id="star4-fav-${film.id}" name="edt-fav-rate-${film.id}" value="4" />
+                <label for="star4-fav-${film.id}">4</label>
+                <input type="radio" id="star3-fav-${film.id}" name="edt-fav-rate-${film.id}" value="3" />
+                <label for="star3-fav-${film.id}">3</label>
+                <input type="radio" id="star2-fav-${film.id}" name="edt-fav-rate-${film.id}" value="2" />
+                <label for="star2-fav-${film.id}">2</label>
+                <input type="radio" id="star1-fav-${film.id}" name="edt-fav-rate-${film.id}" value="1" />
+                <label for="star1-fav-${film.id}"></label>
+            </div>
+            <label for="edt-plot">Plot</label>
+            <input id="edt-plot-${film.id}" type="text">
+            <label for="edt-poster">Poster</label>
+            <input id="edt-poster-${film.id}" type="url">
+            
+            <button class="edt-submit-button">EDIT</button>
+        </div>
         <div class="img-wrapper">
-            <img class="film-poster" src="${film.poster}" alt="movie-image">
-            <!--<div class="rating">${film.rating}</div>-->
+            <img class="film-poster" src="${film.poster}" alt="movie-image">          
         </div>
         <div class="film-info">
+            <div class="film-rating">${star.repeat(film.rating)}</div>
             <h2 class="film-title">${film.title}</h2>
             <p class="genres">${film.genres}</p>
         </div>
-        <p class="message hide">${film.plot}</p>
-<!--        <button>Remove</button>-->
+        <p class="message hide"> Film Plot: ${film.plot}</p>
+        <button class="rmv-button button-64" role="button">X</button>
+        <button class="edt-button button-64" role="button">EDIT</button>
     `;
-    // element.querySelector('button').addEventListener('click', function(){
-    //     element.remove();
-    // });
+
+    element.querySelector('.img-wrapper').addEventListener('click', function(){
+        element.querySelector('.message').classList.toggle('hide');
+    });
+    element.querySelector('.rmv-button').addEventListener('click', function(){
+        element.remove();
+        removeMovie(film.id);
+    });
+
+    //  EDIT MOVIE
+    element.querySelector('.edt-button').addEventListener('click', async function () {
+        element.querySelector('.editor').classList.toggle('hide');
+        element.querySelector('.edt-submit-button').addEventListener('click', async function() {
+
+            const titleFavEDT = element.querySelector(`#edt-title-${film.id}`).value;
+
+            const genresFavEDT = element.querySelector(`#edt-genre-${film.id}`).value;
+
+            const ratingsFavEDT = document.getElementsByName(`edt-fav-rate-${film.id}`);
+
+            const posterFavEDT = element.querySelector(`#edt-poster-${film.id}`).value;
+
+            const plotFavEDT = element.querySelector(`#edt-plot-${film.id}`).value;
+
+            for(let i = 0; i < ratingsFavEDT.length; i++) {
+                if(ratingsFavEDT[i].checked)
+                    var ratingFavEDT = parseFloat(ratingsFavEDT[i].value);
+            }
+
+            // Documentaion will inform of the neccessary fields to a data send request
+            let movieData = {
+                id: film.id,
+                title: titleFavEDT,
+                genres: genresFavEDT,
+                rating: ratingFavEDT,
+                poster: posterFavEDT,
+                plot: plotFavEDT
+            }
+            console.log(movieData)
+
+            // if (rating === 5) {
+            //     let result =  await editMovie(movieData)
+            //     let jsonFav = await getFavorite();
+            //     console.log(jsonFav);
+            //     // Render the movies
+            //     const favGrid = document.querySelector('#favGrid');
+            //     jsonFav.forEach(function(jsonFav){
+            //         renderMovieCard(jsonFav, favGrid);
+            //     });
+            // } else {
+            //     let result =  await editMovie(movieData)
+            //     let jsonMovies = await getMovies();
+            //     console.log(jsonMovies);
+            //     // Render the movies
+            //     const moviesGrid = document.querySelector('#moviesGrid');
+            //     jsonMovies.forEach(function(jsonMovies){
+            //         renderMovieCard(jsonMovies, moviesGrid);
+            //     });
+            // }
+        })
+    })
+
+
     parent.appendChild(element);
 }
