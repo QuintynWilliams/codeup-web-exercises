@@ -309,8 +309,8 @@ export const renderMovieCard = (film, parent) => {
     const element = document.createElement('div');
     element.classList.add('movie-card');
     element.innerHTML = `
-        <div class="editor hide">
-            <label for="edt-title"> 
+        <div class="editor column align-center justify-space-between hide">
+            <label for="edt-title"> Title
             <input id="edt-title-${film.id}" type="text" placeholder="${film.title}">
             </label>
             <label for="edt-genre">  Genre
@@ -442,11 +442,10 @@ export const renderFavCard = (film, parent) => {
     const element = document.createElement('div');
     element.classList.add('movie-card');
     element.innerHTML = `
-        <div class="editor">
-            <label for="edt-title"> 
+        <div class="editor column align-center justify-space-between hide">
+            <label for="edt-title"> Title</label>
             <input id="edt-title-${film.id}" type="text" placeholder="${film.title}">
-            </label>
-            <label for="edt-genre">  Genre
+            <label for="edt-genre">  Genre</label>
             <select id="edt-genre-${film.id}">
                 <option value="Comedy"> Comedy </option>
                 <option value="Fantasy"> Fantasy </option>
@@ -468,7 +467,7 @@ export const renderFavCard = (film, parent) => {
                 <option value="Horror"> Horror </option>
                 <option value="Musical"> Musical </option>
             </select>
-            </label>
+            <span>Grade</span>
             <div class="rating" id="edt-fav-rating-${film.id}">
                 <input type="radio" id="star5-fav-${film.id}" name="edt-fav-rate-${film.id}" value="5" />
                 <label for="star5-fav-${film.id}">5</label>
@@ -482,9 +481,9 @@ export const renderFavCard = (film, parent) => {
                 <label for="star1-fav-${film.id}"></label>
             </div>
             <label for="edt-plot">Plot</label>
-            <input id="edt-plot-${film.id}" type="text">
+            <input id="edt-plot-${film.id}" type="text" placeholder="Film Description">
             <label for="edt-poster">Poster</label>
-            <input id="edt-poster-${film.id}" type="url">
+            <input id="edt-poster-${film.id}" type="url" placeholder="Film Poster URL">
             
             <button class="edt-submit-button">EDIT</button>
         </div>
@@ -496,7 +495,7 @@ export const renderFavCard = (film, parent) => {
             <h2 class="film-title">${film.title}</h2>
             <p class="genres">${film.genres}</p>
         </div>
-        <p class="message hide"> Film Plot: ${film.plot}</p>
+            <p class="message hide"> Film Plot: ${film.plot}</p>
         <button class="rmv-button button-64" role="button">X</button>
         <button class="edt-button button-64" role="button">EDIT</button>
     `;
